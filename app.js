@@ -8,8 +8,7 @@ var bodyParser = require('body-parser')
 var index = require('./routes/index')
 var users = require('./routes/users')
 
-var getPage = require('./functions/getIMDbIDs').getPage
-var extractURLs = require('./functions/getIMDbIDs').extractURLs
+var getIMDbIDs = require('./functions/getIMDbIDs')
 
 
 var app = express();
@@ -49,13 +48,6 @@ app.use(function(err, req, res, next) {
 
 // Get data
 
-getPage("http://www.imdb.com/search/title?release_date=1895-01-01,1895-06-30&sort=year,asc&sound_mixes=silent")
-  .then (function(result) {
-    var IMDbIDs = extractURLs(result)
-    console.log("result is", IMDbIDs)
-  })
-  .catch (function(error) {
-    console.log(error);
-  })
+getIMDbIDs()
 
 module.exports = app
