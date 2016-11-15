@@ -43,7 +43,7 @@ function buildIMDbURL() {
   } else {
     lastDay = 31
   }
-  return "http://www.imdb.com/search/title?count=500&release_date=" + centuryAgo + "-" + month + "-01," + centuryAgo + "-" + month + "-" + lastDay + "&title_type=feature,documentary,short"
+  return "http://www.imdb.com/search/title?count=1500&release_date=" + centuryAgo + "-" + month + "-01," + centuryAgo + "-" + month + "-" + lastDay + "&title_type=feature,short"
 }
 
 function getIMDbIDs() {
