@@ -1,7 +1,9 @@
 var request = require('superagent')
+var cheerio = require('cheerio')
 
 module.exports = {
-  getPage
+  getPage,
+  extractURLs
 }
 
 function getPage(url) {
@@ -16,4 +18,13 @@ function getPage(url) {
       }
     })
   })
+}
+
+function extractURLs(html) {
+  $ = cheerio.load(html)
+  var listURLs = []
+  URLs = $('.lister-item-header a').each(function() {
+    listURLs.push($(this).attr('href'))
+  })
+  return listURLs
 }
