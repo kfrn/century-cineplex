@@ -35,11 +35,15 @@ function buildIMDbURL() {
   var currentDate = new Date
   var centuryAgo = currentDate.getFullYear() - 100
   var month = currentDate.getMonth()+1
-  console.log("month is", month, centuryAgo);
-  var URL = "http://www.imdb.com/search/title?count=500&release_date=" + centuryAgo + "-" + month + "-01," + centuryAgo + "-" + month + "-30" + "&title_type=feature,documentary,short"
-  console.log(URL);
-  return URL
-  // http://www.imdb.com/search/title?count=500&release_date=1916-11-01,1916-11-30&title_type=feature,documentary,short
+  var lastDay
+  if (month === 02) {
+    lastDay = 28
+  } else if (month === 04 || month === 06 || month === 09 || month === 11) {
+    lastDay = 30
+  } else {
+    lastDay = 31
+  }
+  return "http://www.imdb.com/search/title?count=500&release_date=" + centuryAgo + "-" + month + "-01," + centuryAgo + "-" + month + "-" + lastDay + "&title_type=feature,documentary,short"
 }
 
 function getIMDbIDs() {
