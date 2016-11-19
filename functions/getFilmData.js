@@ -4,23 +4,25 @@ var addFilmtoDB = require('./addFilmtoDB')
 
 module.exports = getFilmData
 
-function getFilmData() {
-  omdb.get({imdb: 'tt0006744'}, true, function(err, res) {
+function getFilmData(id) {
+  omdb.get({imdb: id}, true, function(err, res) {
     if (err) return console.error(err)
     if (!res) return console.log("Film not found!")
 
+    var released = (res.released === null) ? 'none' : res.released.toString()
     var runTime = (res.runtime === null) ? 'unknown' : res.runtime
-    var posterURL = (res.poster === null) ? 'none' : res.poster
+    var director = (res.director === null) ? 'unknown' : res.director
     var synopsis = (res.plot === null) ? 'none' : res.plot
+    var posterURL = (res.poster === null) ? 'none' : res.poster
 
     var newFilm = {
       title: res.title,
       year: res.year,
-      released: res.released.toString(),
+      released: released,
       runtime: runTime,
       countries: res.countries.join(", "),
       genres: res.genres.join(", "),
-      director: res.director,
+      director: director,
       writers: res.writers.join(", "),
       actors: res.actors.join(", "),
       plot: synopsis,

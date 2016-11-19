@@ -50,6 +50,7 @@ app.use(function(err, req, res, next) {
 
 // Get IMDbIDs (web scrape)
 var IMDbIDs = getIMDbIDs()
+console.log("In app.js, the IMDbIDs are", IMDbIDs);
 
 // Call OMDB API
 var filmData = getFilmData()
