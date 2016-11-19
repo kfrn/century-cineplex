@@ -11,6 +11,7 @@ var users = require('./routes/users')
 var populateDB = require('./functions/populateDB')
 
 var app = express()
+var port = process.env.PORT || 3000
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
