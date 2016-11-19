@@ -34,7 +34,7 @@ function extractIDs(arrayofURLs) {
 function buildIMDbURL() {
   var currentDate = new Date
   var centuryAgo = currentDate.getFullYear() - 100
-  var month = currentDate.getMonth()+1
+  var month = currentDate.getMonth() + 1
   var lastDay
   if (month === 02) {
     lastDay = 28
@@ -47,7 +47,7 @@ function buildIMDbURL() {
 }
 
 function getIMDbIDs() {
-  getPage(buildIMDbURL())
+  getPage("http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short")  // buildIMDbURL()
     .then (function(result) {
       var IMDbURLs = extractURLs(result)
       var IMDbIDs = extractIDs(IMDbURLs)

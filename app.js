@@ -4,6 +4,7 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
+var omdb = require('omdb')
 
 var index = require('./routes/index')
 var users = require('./routes/users')
@@ -46,8 +47,14 @@ app.use(function(err, req, res, next) {
   res.render('error')
 })
 
-// Get data
-
+// Get IMDbIDs (web scrape)
 getIMDbIDs()
+
+// Call OMDB API
+omdb.get({imdb: 'tt0006699'}, true, function(err, res) {
+  if (err) return console.error(err)
+  if (!res) return console.log("Film not found!");
+  console.log(res);
+})
 
 module.exports = app
