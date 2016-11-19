@@ -51,20 +51,5 @@ function buildIMDbURL() {
     lastDay = 31
   }
   var URL = `http://www.imdb.com/search/title?count=1500&release_date=${centuryAgo}-${month}-01,${centuryAgo}-${month}-${lastDay}&title_type=feature,short`
-  console.log("the URL is", URL)
   return URL
 }
-
-// function getIMDbIDs() {
-//   getPage("http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short") // buildIMDbURL() // "http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short"
-//     .then (function(result) {
-//       var IMDbURLs = extractURLs(result)
-//       var IMDbIDs = extractIDs(IMDbURLs)
-//       // console.log("The IMDbIDs are", IMDbIDs);
-//       console.log("The # of IMDbIDs is:", IMDbIDs.length)
-//       IMDbIDs.forEach(getFilmData)
-//     })
-//     .catch (function(error) {
-//       console.log(error);
-//     })
-// }

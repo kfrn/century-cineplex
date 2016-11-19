@@ -4,7 +4,7 @@ var getFilmData = require('./getFilmData')
 module.exports = populateDB
 
 function populateDB() {
-  getIMDbIDs.getPage("http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short") // getIMDbIDs.buildIMDbURL()
+  getIMDbIDs.getPage(getIMDbIDs.buildIMDbURL()) // 
     .then (function(result) {
       var IMDbURLs = getIMDbIDs.extractURLs(result)
       var IMDbIDs = getIMDbIDs.extractIDs(IMDbURLs)
