@@ -56,22 +56,37 @@ var IMDbIDs = getIMDbIDs()
 omdb.get({imdb: 'tt0006699'}, true, function(err, res) {
   if (err) return console.error(err)
   if (!res) return console.log("Film not found!")
+
+  var runTime
+  if (res.runtime === null) {
+    runTime = 'unknown'
+  } else {
+    runTime = res.runtime
+  }
+
   var newFilm = {
     title: res.title,
     year: res.year,
-    released: res.released,
-    released: res.runtime,
-    countries: res.countries,
-    genres: res.genres,
+    released: res.released.toString(),
+    runtime: runTime,
+    countries: res.countries.join(", "),
+    genres: res.genres.join(", "),
     director: res.director,
-    writers: res.writers,
-    actors: res.actors,
+    writers: res.writers.join(", "),
+    actors: res.actors.join(", "),
     plot: res.plot,
     posterURL: res.poster,
     IMDbID: res.imdb.id,
     type: res.type
   }
-  console.log(newFilm)
+
+  addFilmtoDB(newFilm)
+    .then(function(newFilm) {
+      console.log("Film added")
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
 })
 
 module.exports = app

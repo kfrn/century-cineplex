@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.increments('id')
     table.string('title')
     table.int('year')
-    table.datetime('released')
+    table.text('released')
     table.char('runtime')
     table.char('countries')
     table.char('genres')
