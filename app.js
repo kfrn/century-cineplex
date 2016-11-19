@@ -8,6 +8,7 @@ var bodyParser = require('body-parser')
 var index = require('./routes/index')
 var users = require('./routes/users')
 
+var clearDB = require('./functions/dbBasics').clearDB
 var populateDB = require('./functions/populateDB')
 
 var app = express()
