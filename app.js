@@ -10,9 +10,10 @@ var index = require('./routes/index')
 var users = require('./routes/users')
 
 var getIMDbIDs = require('./functions/getIMDbIDs')
+var addFilmtoDB = require('./functions/addFilmtoDB')
 
 
-var app = express();
+var app = express()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -20,7 +21,7 @@ app.set('view engine', 'hbs')
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -49,13 +50,28 @@ app.use(function(err, req, res, next) {
 
 // Get IMDbIDs (web scrape)
 var IMDbIDs = getIMDbIDs()
-console.log(IMDbIDs);
+// console.log("APP.JS: the IMDbIDs are", IMDbIDs)
 
 // Call OMDB API
 omdb.get({imdb: 'tt0006699'}, true, function(err, res) {
   if (err) return console.error(err)
-  if (!res) return console.log("Film not found!");
-  console.log(res);
+  if (!res) return console.log("Film not found!")
+  var newFilm = {
+    title: res.title,
+    year: res.year,
+    released: res.released,
+    released: res.runtime,
+    countries: res.countries,
+    genres: res.genres,
+    director: res.director,
+    writers: res.writers,
+    actors: res.actors,
+    plot: res.plot,
+    posterURL: res.poster,
+    IMDbID: res.imdb.id,
+    type: res.type
+  }
+  console.log(newFilm)
 })
 
 module.exports = app

@@ -51,8 +51,9 @@ function getIMDbIDs() {
     .then (function(result) {
       var IMDbURLs = extractURLs(result)
       var IMDbIDs = extractIDs(IMDbURLs)
-      // console.log("The IMDbIDs are", IMDbIDs);
-      console.log("The # of IMDbIDs is:", IMDbIDs.length)
+      // console.log("The IMDbIDs are", IMDbIDs)
+      // console.log("The # of IMDbIDs is:", IMDbIDs.length)
+      return IMDbIDs
     })
     .catch (function(error) {
       console.log(error);
