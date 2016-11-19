@@ -50,19 +50,15 @@ app.use(function(err, req, res, next) {
 
 // Get IMDbIDs (web scrape)
 var IMDbIDs = getIMDbIDs()
-// console.log("APP.JS: the IMDbIDs are", IMDbIDs)
 
 // Call OMDB API
-omdb.get({imdb: 'tt0006699'}, true, function(err, res) {
+omdb.get({imdb: 'tt0006742'}, true, function(err, res) {
   if (err) return console.error(err)
   if (!res) return console.log("Film not found!")
 
-  var runTime
-  if (res.runtime === null) {
-    runTime = 'unknown'
-  } else {
-    runTime = res.runtime
-  }
+  var runTime = (res.runtime === null) ? 'unknown' : res.runtime
+  var posterURL = (res.poster === null) ? 'none' : res.poster
+  var synopsis = (res.plot === null) ? 'none' : res.plot
 
   var newFilm = {
     title: res.title,
@@ -74,8 +70,8 @@ omdb.get({imdb: 'tt0006699'}, true, function(err, res) {
     director: res.director,
     writers: res.writers.join(", "),
     actors: res.actors.join(", "),
-    plot: res.plot,
-    posterURL: res.poster,
+    plot: synopsis,
+    posterURL: posterURL,
     IMDbID: res.imdb.id,
     type: res.type
   }
