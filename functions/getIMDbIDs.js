@@ -51,5 +51,6 @@ function buildIMDbURL() {
     lastDay = 31
   }
   var URL = `http://www.imdb.com/search/title?count=1500&release_date=${centuryAgo}-${month}-01,${centuryAgo}-${month}-${lastDay}&title_type=feature,short`
+  // console.log(URL);
   return URL
 }

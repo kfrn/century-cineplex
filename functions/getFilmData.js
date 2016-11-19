@@ -13,13 +13,14 @@ function getFilmData(id) {
     var director = (res.director === null) ? 'unknown' : res.director
     var synopsis = (res.plot === null) ? 'none' : res.plot
     var posterURL = (res.poster === null) ? 'none' : res.poster
+    var country = (res.countries.length === 0) ? 'unknown' : res.countries.join(", ")
 
     var newFilm = {
       title: res.title,
       year: res.year,
       released: released,
       runtime: runTime,
-      countries: res.countries.join(", "),
+      countries: country,
       genres: res.genres.join(", "),
       director: director,
       writers: res.writers.join(", "),
@@ -29,6 +30,7 @@ function getFilmData(id) {
       IMDbID: res.imdb.id,
       type: res.type
     }
+    // console.log(newFilm);
 
     addFilmtoDB(newFilm)
     .then(function(newFilm) {
