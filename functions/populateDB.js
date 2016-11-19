@@ -16,5 +16,3 @@ function populateDB() {
       console.log(error);
     })
 }
-
-// populateDB()

@@ -4,14 +4,11 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
-var omdb = require('omdb')
 
 var index = require('./routes/index')
 var users = require('./routes/users')
 
-var getIMDbIDs = require('./functions/getIMDbIDs')
-var addFilmtoDB = require('./functions/addFilmtoDB')
-var getFilmData = require('./functions/getFilmData')
+var populateDB = require('./functions/populateDB')
 
 var app = express()
 
@@ -48,12 +45,7 @@ app.use(function(err, req, res, next) {
   res.render('error')
 })
 
-// Get IMDbIDs (web scrape)
-var IMDbIDs = getIMDbIDs()
-console.log("In app.js, the IMDbIDs are", IMDbIDs);
-
-// Call OMDB API
-var filmData = getFilmData()
-// console.log(filmData)
+// Populate database
+populateDB()
 
 module.exports = app
