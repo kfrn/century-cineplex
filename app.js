@@ -48,7 +48,8 @@ app.use(function(err, req, res, next) {
 })
 
 // Get IMDbIDs (web scrape)
-getIMDbIDs()
+var IMDbIDs = getIMDbIDs()
+console.log(IMDbIDs);
 
 // Call OMDB API
 omdb.get({imdb: 'tt0006699'}, true, function(err, res) {
