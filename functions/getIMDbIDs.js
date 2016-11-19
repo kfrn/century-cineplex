@@ -3,8 +3,12 @@ var cheerio = require('cheerio')
 
 var getFilmData = require('./getFilmData')
 
-
-module.exports = getIMDbIDs
+module.exports = {
+  getPage,
+  extractURLs,
+  extractIDs,
+  buildIMDbURL
+}
 
 function getPage(url) {
   return new Promise (function (resolve, reject) {
@@ -51,16 +55,16 @@ function buildIMDbURL() {
   return URL
 }
 
-function getIMDbIDs() {
-  getPage("http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short") // buildIMDbURL() // "http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short"
-    .then (function(result) {
-      var IMDbURLs = extractURLs(result)
-      var IMDbIDs = extractIDs(IMDbURLs)
-      // console.log("The IMDbIDs are", IMDbIDs);
-      console.log("The # of IMDbIDs is:", IMDbIDs.length)
-      IMDbIDs.forEach(getFilmData)
-    })
-    .catch (function(error) {
-      console.log(error);
-    })
-}
+// function getIMDbIDs() {
+//   getPage("http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short") // buildIMDbURL() // "http://www.imdb.com/search/title?count=100&release_date=1916-01-01,1916-01-03&title_type=feature,short"
+//     .then (function(result) {
+//       var IMDbURLs = extractURLs(result)
+//       var IMDbIDs = extractIDs(IMDbURLs)
+//       // console.log("The IMDbIDs are", IMDbIDs);
+//       console.log("The # of IMDbIDs is:", IMDbIDs.length)
+//       IMDbIDs.forEach(getFilmData)
+//     })
+//     .catch (function(error) {
+//       console.log(error);
+//     })
+// }

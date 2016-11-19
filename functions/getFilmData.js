@@ -1,7 +1,6 @@
 var omdb = require('omdb')
 var addFilmtoDB = require('./addFilmtoDB')
 
-
 module.exports = getFilmData
 
 function getFilmData(id) {
