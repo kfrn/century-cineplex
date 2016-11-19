@@ -1,5 +1,6 @@
 var omdb = require('omdb')
-var addFilmtoDB = require('./addFilmtoDB')
+var addFilmtoDB = require('./dbBasics').addFilmtoDB
+var clearDB = require('./dbBasics').clearDB
 
 module.exports = getFilmData
 
@@ -31,6 +32,8 @@ function getFilmData(id) {
       type: res.type
     }
     // console.log(newFilm);
+
+    clearDB()
 
     addFilmtoDB(newFilm)
     .then(function(newFilm) {
