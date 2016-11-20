@@ -11,6 +11,7 @@ function getFilmData(id) {
     var released = (res.released === null) ? '' : res.released.toString()
     var director = (res.director === null) ? '' : res.director
     var synopsis = (res.plot === null) ? '' : res.plot
+    var genres = (res.genres.length === 0) ? 'no genre listed' : res.genres.join(", ")
     var country = (res.countries.length === 0) ? 'unknown' : res.countries.join(", ")
 
     var newFilm = {
@@ -19,7 +20,7 @@ function getFilmData(id) {
       released: released,
       runtime: res.runtime,
       countries: country,
-      genres: res.genres.join(", "),
+      genres: genres,
       director: director,
       writers: res.writers.join(", "),
       actors: res.actors.join(", "),
