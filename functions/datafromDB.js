@@ -3,7 +3,8 @@ var config = require('../knexfile')[ process.env.NODE_ENV || 'development' ]
 var knex = Knex(config)
 
 module.exports = {
-  getFilms
+  getFilms,
+  getCountries
 }
 
 function getFilms() {
@@ -12,6 +13,11 @@ function getFilms() {
           .orWhere('plot', '<>', '')
 }
 
+function getCountries() {
+  return knex('films')
+          .distinct('countries')
+          // .select()
+}
 
 
 /* Raw SQL */

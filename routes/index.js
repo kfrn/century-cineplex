@@ -1,7 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
-var getFilms = require('../functions/filmsfromDB').getFilms
+var getFilms = require('../functions/datafromDB').getFilms
+var getCountries = require('../functions/datafromDB').getCountries
 
 module.exports = router
 
@@ -31,7 +32,15 @@ router.get('/film/', function(req, res, next) {
 
 /* GET film selection page */
 router.get('/search', function(req, res, next) {
-  res.render('search', { title: 'tba'} )
+  getCountries()
+    .then(function(req) {
+      var countryList = req.map((elem) => elem.countries)
+      var data = {countryList: countryList, year: centuryAgo, month: month}
+      res.render('search', data)
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
 })
 
 /* GET info page */
