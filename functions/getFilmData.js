@@ -12,7 +12,6 @@ function getFilmData(id) {
     var runTime = (res.runtime === null) ? 'unknown' : res.runtime
     var director = (res.director === null) ? 'unknown' : res.director
     var synopsis = (res.plot === null) ? 'none' : res.plot
-    var posterURL = (res.poster === null) ? 'none' : res.poster
     var country = (res.countries.length === 0) ? 'unknown' : res.countries.join(", ")
 
     var newFilm = {
@@ -26,7 +25,7 @@ function getFilmData(id) {
       writers: res.writers.join(", "),
       actors: res.actors.join(", "),
       plot: synopsis,
-      posterURL: posterURL,
+      posterURL: res.poster,
       IMDbID: res.imdb.id,
       type: res.type
     }
