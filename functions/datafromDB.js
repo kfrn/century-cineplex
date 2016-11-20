@@ -35,8 +35,22 @@ function getGenres() {
 //     console.log(error)
 //   })
 
+function getSearchResults(country, genre, hasPlot) {
+  var operator = (hasPlot) ? '<>' : '='
+  return knex('films')
+          .where('countries', '=', country)
+          .andWhere('genres', 'like', genre)
+          .andWhere('plot', operator, '')
+}
+
+getSearchResults('USA', 'drama', true)
+  .then(function(req) {
+    console.log(req);
+  })
+  .catch(function(error) {
+    console.log(error)
+  })
+
 
 /* Raw SQL */
-// SELECT * FROM "films" WHERE plot <> "none"
-// SELECT * FROM "films" WHERE posterURL <> "none"
-// SELECT * FROM "films" WHERE plot <> "none" OR posterURL <> "none"
+// SELECT * FROM 'films' WHERE countries = 'USA' AND genres LIKE 'drama' AND plot <> '' AND posterURL LIKE 'http%'
