@@ -13,8 +13,14 @@ function addFilmtoDB(film) {
 
 function clearDB() {
   console.log("deleting existing films from DB")
-  // return knex('films').del()
-  return knex.raw('DELETE FROM "main"."films"')
+  return knex('films').del()
+  // return knex.raw('DELETE FROM "main"."films"')
 }
 
-// clearDB()
+clearDB()
+  .then(function() {
+    console.log("database cleared");
+  })
+  .catch(function(error) {
+    console.log(error)
+  })
