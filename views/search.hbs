@@ -1,1 +1,40 @@
-<p>To search. {{title}}</p>
+<p>Let's search the films of {{month}}, {{year}}.</p>
+
+<form class="" action="/getfilm" method="get">
+  <p>
+    Country:
+    <select class="countries" name="Country">
+      {{#each countryList}}
+        <option value={{this}} {{selected this ../selectedState}}>{{this}}</option>
+      {{/each}}
+    </select>
+  </p>
+  <p>
+    Genre:
+    <select class="genre" name="Genre">
+      <option value="action">action</option>
+      <option value="animation">animation</option>
+      <option value="biography">biography</option>
+      <option value="comedy">comedy</option>
+      <option value="drama">drama</option>
+      <option value="horror">horror</option>
+      <option value="mystery">mystery</option>
+      <option value="news">news</option>
+      <option value="romance">romance</option>
+      <option value="thriller">thriller</option>
+      <option value="war">war</option>
+    </select>
+  </p>
+  <p>
+    Only films with a plot summary, please
+    <input type="checkbox" name="plot" value="">
+  </p>
+  <p>
+    Only films with a poster available, please
+    <input type="checkbox" name="poster" value="">
+  </p>
+  <button type="submit">Find me a film!</button>
+
+<p>
+  <a href="/">Go back home</a>
+</p>

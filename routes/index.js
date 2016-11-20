@@ -36,6 +36,7 @@ router.get('/search', function(req, res, next) {
     .then(function(req) {
       var countryList = req.map((elem) => elem.countries)
       var data = {countryList: countryList, year: centuryAgo, month: month}
+      console.log("data for search page is", data);
       res.render('search', data)
     })
     .catch(function(error) {
