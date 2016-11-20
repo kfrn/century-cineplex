@@ -9,7 +9,6 @@ function getFilmData(id) {
     if (!res) return console.log("Film not found!")
 
     var released = (res.released === null) ? 'unknown' : res.released.toString()
-    var runTime = (res.runtime === null) ? 'unknown' : res.runtime
     var director = (res.director === null) ? 'unknown' : res.director
     var synopsis = (res.plot === null) ? 'none' : res.plot
     var country = (res.countries.length === 0) ? 'unknown' : res.countries.join(", ")
@@ -18,7 +17,7 @@ function getFilmData(id) {
       title: res.title,
       year: res.year,
       released: released,
-      runtime: runTime,
+      runtime: res.runtime,
       countries: country,
       genres: res.genres.join(", "),
       director: director,
