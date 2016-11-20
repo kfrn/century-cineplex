@@ -9,7 +9,7 @@ module.exports = {
 function getFilms() {
   return knex('films')
           .where('posterURL', '<>', 'none')
-          .orWhere('plot', '<>', 'none')
+          .orWhere('plot', '<>', '')
 }
 
 

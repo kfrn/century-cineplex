@@ -8,9 +8,9 @@ function getFilmData(id) {
     if (err) return console.error(err)
     if (!res) return console.log("Film not found!")
 
-    var released = (res.released === null) ? 'unknown' : res.released.toString()
-    var director = (res.director === null) ? 'unknown' : res.director
-    var synopsis = (res.plot === null) ? 'none' : res.plot
+    var released = (res.released === null) ? '' : res.released.toString()
+    var director = (res.director === null) ? '' : res.director
+    var synopsis = (res.plot === null) ? '' : res.plot
     var country = (res.countries.length === 0) ? 'unknown' : res.countries.join(", ")
 
     var newFilm = {
