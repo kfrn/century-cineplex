@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
+var getFilms = require('../functions/filmsfromDB').getFilms
+
 module.exports = router
 
 var currentDate = new Date
@@ -14,8 +16,17 @@ router.get('/', function(req, res, next) {
 })
 
 /* GET film page */
-router.get('/film', function(req, res, next) {
-  res.render('film', { title: 'tba'} )
+router.get('/film/', function(req, res, next) {
+  getFilms()
+    .then(function(req) {
+      var randomFilm = req[Math.floor(Math.random() * req.length)]
+      console.log("A random film is", randomFilm)
+      console.log("number of results are ...", req.length)
+      res.render('film', randomFilm)
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
 })
 
 /* GET film selection page */
