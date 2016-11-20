@@ -1,1 +1,67 @@
-<p>How about {{title}}?</p>
+<p>How about <strong>{{title}}</strong>?</p>
+
+<div class="">
+  <div class="filminfo">
+    <table>
+      <tr>
+        <td><strong>Country:</strong></td>
+        <td>{{countries}}</td>
+      </tr>
+      <tr>
+        <td><strong>Director:</strong></td>
+        <td>{{director}}</td>
+      </tr>
+      {{#if writers}}
+        <tr>
+          <td><strong>Writer(s):</strong></td>
+          <td>{{writers}}</td>
+        </tr>
+      {{/if}}
+      {{#if actors}}
+        <tr>
+          <td><strong>Actors:</strong></td>
+          <td>{{actors}}</td>
+        </tr>
+      {{/if}}
+      <tr>
+        <td><strong>Genre(s):</strong></td>
+        <td>{{genres}}</td>
+      </tr>
+      {{#if writers}}
+        <tr>
+          <td><strong>Writer(s):</strong></td>
+          <td>{{writers}}</td>
+        </tr>
+      {{/if}}
+      {{#if runtime}}
+        <tr>
+          <td><strong>Runtime:</strong></td>
+          <td>{{runtime}} minutes</td>
+        </tr>
+      {{/if}}
+      {{#if plot}}
+        <tr>
+          <td><strong>Plot summary:</strong></td>
+          <td>{{plot}}</td>
+        </tr>
+      {{/if}}
+    </table>
+  </div>
+  <div class="poster">
+    {{#if posterURL}}
+      <img src={{posterURL}} alt="Film poster for {{title}}" class="film-poster"/>
+    {{else}}
+      <img src="images/nitratedecay.jpg" alt="Intermission lantern slide" class="noposter" />
+    {{/if}}
+  </div>
+</div>
+
+<a href="/">Go back home</a>
+
+<!-- { id: 36953,
+
+  runtime: 50,
+  genres: 'Comedy',
+  plot: 'none',
+  posterURL: 'http://ia.media-imdb.com/images/M/MV5BMTgwOTU5Mzg0OV5BMl5BanBnXkFtZTgwMzIzNjI1NDE@._V1_SX300.jpg',
+ } -->
