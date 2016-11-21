@@ -1,55 +1,55 @@
-<p>Here's a film that matches your search:</p>
+<p>Here's a film from {{country}}, matching the genre '{{genre}}'{{#if plot}}, that has a plot summary{{/if}}:</p>
 
 <div class="">
   <div class="filminfo">
     <table>
       <tr>
         <td><strong>Title:</strong></td>
-        <td>{{title}}</td>
+        <td>{{randomFilm.title}}</td>
       </tr>
       <tr>
         <td><strong>Country:</strong></td>
-        <td>{{countries}}</td>
+        <td>{{randomFilm.countries}}</td>
       </tr>
-      {{#if director}}
+      {{#if randomFilm.director}}
         <tr>
           <td><strong>Director(s):</strong></td>
-          <td>{{director}}</td>
+          <td>{{randomFilm.director}}</td>
         </tr>
       {{/if}}
-      {{#if writers}}
+      {{#if randomFilm.writers}}
       <tr>
         <td><strong>Writer(s):</strong></td>
-        <td>{{writers}}</td>
+        <td>{{randomFilm.writers}}</td>
       </tr>
       {{/if}}
-      {{#if actors}}
+      {{#if randomFilm.actors}}
         <tr>
           <td><strong>Actors:</strong></td>
-          <td>{{actors}}</td>
+          <td>{{randomFilm.actors}}</td>
         </tr>
       {{/if}}
       <tr>
         <td><strong>Genre(s):</strong></td>
-        <td>{{genres}}</td>
+        <td>{{randomFilm.genres}}</td>
       </tr>
-      {{#if runtime}}
+      {{#if randomFilm.runtime}}
         <tr>
           <td><strong>Runtime:</strong></td>
-          <td>{{runtime}} minutes</td>
+          <td>{{randomFilm.runtime}} minutes</td>
         </tr>
       {{/if}}
-      {{#if plot}}
+      {{#if randomFilm.plot}}
         <tr>
           <td><strong>Plot summary:</strong></td>
-          <td>{{plot}}</td>
+          <td>{{randomFilm.plot}}</td>
         </tr>
       {{/if}}
     </table>
   </div>
   <div class="poster">
-    {{#if posterURL}}
-      <img src={{posterURL}} alt="Film poster for {{title}}" class="film-poster"/>
+    {{#if randomFilm.posterURL}}
+      <img src={{randomFilm.posterURL}} alt="Film poster for {{randomFilm.title}}" class="film-poster"/>
     {{else}}
       <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter" />
     {{/if}}
