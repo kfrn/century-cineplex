@@ -1,9 +1,9 @@
 <p>Search the films of {{month}}, {{year}}.</p>
 
-<form class="" action="/film" method="post">
+<form class="" action="/filmresult" method="get">
   <p>
     Country:
-    <select class="countries" name="Country">
+    <select class="countries" name="country">
       {{#each countryList}}
         <option value={{this}} {{selected this ../selectedState}}>{{this}}</option>
       {{/each}}
@@ -11,7 +11,7 @@
   </p>
   <p>
     Genre:
-    <select class="genre" name="Genre">
+    <select class="genre" name="genre">
       <option value="action">action</option>
       <option value="adventure">adventure</option>
       <option value="animation">animation</option>
@@ -28,15 +28,15 @@
       <option value="thriller">thriller</option>
       <option value="war">war</option>
       <option value="western">western</option>
-      <option value="western">western</option>
       <option value="nogenre">no genre listed</option>
     </select>
   </p>
-  <p>
+  <!-- <p>
     Only films with a plot summary, please
     <input type="checkbox" name="plot" value="">
-  </p>
+  </p> -->
   <button type="submit">Find me a film!</button>
+</form>
 
 <p>
   <a href="/">Go back home</a>
