@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists("films", function(table) {
     table.increments('id')
     table.string('title')
-    table.int('year')
+    table.integer('year')
     table.text('released')
     table.string('runtime')
     table.string('countries')
