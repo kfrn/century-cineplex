@@ -1,6 +1,8 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  font-family: 'Lato', sans-serif;  /*font: 32px;*/
+  /*font-size: 24px;*/
 }
 
 a {
@@ -13,4 +15,9 @@ a {
 
 .noposter {
   max-width: 400px;
+}
+
+.title {
+  font-family: 'Flamenco', cursive;
+  font-size: 26px;
 }
