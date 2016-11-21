@@ -3,6 +3,7 @@ var router = express.Router()
 
 var getFilms = require('../functions/datafromDB').getFilms
 var getCountries = require('../functions/datafromDB').getCountries
+var getSearchResults = require('../functions/datafromDB').getSearchResults
 
 module.exports = router
 
@@ -21,8 +22,8 @@ router.get('/film/', function(req, res, next) {
   getFilms()
     .then(function(req) {
       var randomFilm = req[Math.floor(Math.random() * req.length)]
-      console.log("A random film is", randomFilm)
-      console.log("number of results are ...", req.length)
+      // console.log("A random film is", randomFilm)
+      console.log("There are", req.length, "results - giving you a random pick of that", req.length)
       res.render('film', randomFilm)
     })
     .catch(function(error) {
@@ -37,6 +38,23 @@ router.get('/search', function(req, res, next) {
       var countryList = req.map((elem) => elem.countries).sort()
       var data = {countryList: countryList, year: centuryAgo, month: month}
       res.render('search', data)
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+})
+
+/* GET film result page */
+router.get('/filmresult', function(req, res, next) {
+  getSearchResults(req.query.country, req.query.genre)
+    .then(function(results) {
+      var randomFilm = results[Math.floor(Math.random() * results.length)]
+      if (randomFilm === undefined) {
+        res.render('noresult')
+        console.log("No results!");
+      }
+      res.render('film', randomFilm)
+      console.log(randomFilm);
     })
     .catch(function(error) {
       console.log(error)

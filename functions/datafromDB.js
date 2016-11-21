@@ -5,7 +5,8 @@ var knex = Knex(config)
 module.exports = {
   getFilms,
   getCountries,
-  getGenres
+  getGenres,
+  getSearchResults
 }
 
 function getFilms() {
@@ -35,23 +36,11 @@ function getGenres() {
 //     console.log(error)
 //   })
 
-function getSearchResults(country, genre, hasPlot) {
-  var operator = (hasPlot) ? '<>' : '='
+function getSearchResults(country, genre) {
   return knex('films')
           .where('countries', '=', country)
           .andWhere('genres', 'like', genre)
-          .andWhere('plot', operator, '')
 }
 
-getSearchResults('USA', 'drama', true)
-  .then(function(req) {
-    var randomFilm = req[Math.floor(Math.random() * req.length)]
-    console.log(randomFilm);
-  })
-  .catch(function(error) {
-    console.log(error)
-  })
-
-
 /* Raw SQL */
-// SELECT * FROM 'films' WHERE countries = 'USA' AND genres LIKE 'drama' AND plot <> '' AND posterURL LIKE 'http%'
+// SELECT * FROM 'films' WHERE countries = 'USA' AND genres LIKE 'drama' AND plot <> '''
