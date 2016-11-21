@@ -37,15 +37,23 @@ function getGenres() {
 //   })
 
 function getSearchResults(country, genre, plot) {
-  if (plot == 'on') { 
+  if (plot == 'on' && genre != 'any') {
     return knex('films')
     .where('countries', '=', country)
     .andWhere('genres', 'like', genre)
     .andWhere('plot', '<>', '')
-  } else {
+  } else if (plot == 'on' && genre == 'any') {
+    return knex('films')
+    .where('countries', '=', country)
+    .andWhere('plot', '<>', '')
+  } else if (plot != 'on' && genre != 'any') {
     return knex('films')
     .where('countries', '=', country)
     .andWhere('genres', 'like', genre)
+    .andWhere('plot', '=', '')
+  } else {
+    return knex('films')
+    .where('countries', '=', country)
     .andWhere('plot', '=', '')
   }
 }
