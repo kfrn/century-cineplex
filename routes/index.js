@@ -50,6 +50,7 @@ router.get('/filmresult', function(req, res, next) {
   getSearchResults(req.query.country, req.query.genre, req.query.plot)
     .then(function(results) {
       var randomFilm = results[Math.floor(Math.random() * results.length)]
+      console.log("randomFilm is", randomFilm);
       if (randomFilm === undefined) {
         res.render('noresult')
         console.log("No results!");
