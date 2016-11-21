@@ -45,7 +45,8 @@ function getSearchResults(country, genre, hasPlot) {
 
 getSearchResults('USA', 'drama', true)
   .then(function(req) {
-    console.log(req);
+    var randomFilm = req[Math.floor(Math.random() * req.length)]
+    console.log(randomFilm);
   })
   .catch(function(error) {
     console.log(error)
