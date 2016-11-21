@@ -46,7 +46,8 @@ router.get('/search', function(req, res, next) {
 
 /* GET film result page */
 router.get('/filmresult', function(req, res, next) {
-  getSearchResults(req.query.country, req.query.genre)
+  console.log("req.query is", req.query);
+  getSearchResults(req.query.country, req.query.genre, req.query.plot)
     .then(function(results) {
       var randomFilm = results[Math.floor(Math.random() * results.length)]
       if (randomFilm === undefined) {

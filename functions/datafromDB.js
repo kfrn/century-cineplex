@@ -36,10 +36,18 @@ function getGenres() {
 //     console.log(error)
 //   })
 
-function getSearchResults(country, genre) {
-  return knex('films')
-          .where('countries', '=', country)
-          .andWhere('genres', 'like', genre)
+function getSearchResults(country, genre, plot) {
+  if (plot == 'on') { 
+    return knex('films')
+    .where('countries', '=', country)
+    .andWhere('genres', 'like', genre)
+    .andWhere('plot', '<>', '')
+  } else {
+    return knex('films')
+    .where('countries', '=', country)
+    .andWhere('genres', 'like', genre)
+    .andWhere('plot', '=', '')
+  }
 }
 
 /* Raw SQL */
