@@ -55,7 +55,7 @@ router.get('/filmresult', function(req, res, next) {
         res.render('noresult')
         console.log("No results!");
       }
-      res.render('film', randomFilm)
+      res.render('result', randomFilm)
       console.log(randomFilm);
     })
     .catch(function(error) {
