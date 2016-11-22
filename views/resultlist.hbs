@@ -1,7 +1,5 @@
 <p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}:</p>
 
-<!-- <p>Here is the first result from {{country}} that matches the genre '{{genre}}'{{#if plot}}, and has a plot summary{{/if}}:</p> -->
-
 {{#each filmList}}
   <table class='filminfo'>
     <tr>
@@ -45,6 +43,11 @@
       </tr>
     {{/if}}
   </table>
+  {{#if this.posterURL}}
+    <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="film-poster"/>
+  {{else}}
+    <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter" />
+  {{/if}}
   <br />
 {{/each}}
 
