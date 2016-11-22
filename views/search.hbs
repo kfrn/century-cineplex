@@ -12,24 +12,9 @@
   <p>
     Genre:
     <select class="genre" name="genre">
-      <option value="any">any</option>
-      <option value="action">action</option>
-      <option value="adventure">adventure</option>
-      <option value="animation">animation</option>
-      <option value="biography">biography</option>
-      <option value="comedy">comedy</option>
-      <option value="crime">crime</option>
-      <option value="drama">drama</option>
-      <option value="history">history</option>
-      <option value="horror">horror</option>
-      <option value="mystery">mystery</option>
-      <option value="news">news</option>
-      <option value="romance">romance</option>
-      <option value="short">short</option>
-      <option value="thriller">thriller</option>
-      <option value="war">war</option>
-      <option value="western">western</option>
-      <option value="nogenre">no genre listed</option>
+      {{#each genres}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
     </select>
   </p>
   <p>

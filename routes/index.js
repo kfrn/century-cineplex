@@ -41,8 +41,9 @@ router.get('/search', function(req, res, next) {
       getGenres()
         .then(function(req) {
           var genreList = req.map((elem) => elem.genres).join(', ').split(", ").filter((item, idx, self) => idx == self.indexOf(item)).sort()
+          genreList.unshift('any')
           data.genres = genreList
-          console.log("data is .....",data)
+          // console.log("data is .....",data)
           res.render('search', data)
         })
     })
