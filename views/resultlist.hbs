@@ -1,4 +1,12 @@
-<p>When I code it, the list will appear here ...</p>
+<!-- <p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}:</p> -->
+
+<p>Here is the first result from {{country}} that matches the genre '{{genre}}'{{#if plot}}, and has a plot summary{{/if}}:</p>
+
+<ul class='filminfo'>
+  <li>The title is: {{filmList.title}}</li>
+  <li>The actors are: {{filmList.actors}}</li>
+</ul>
+
 
 <p>
   <a href="/">home</a> | <a href="/search">back to search page</a>
