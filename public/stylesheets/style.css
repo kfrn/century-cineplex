@@ -21,3 +21,8 @@ a {
   font-family: 'Flamenco', cursive;
   font-size: 26px;
 }
+
+
+.poster-film-list {
+  max-width: 150px;
+}
