@@ -2,50 +2,52 @@
 
 {{#each filmList}}
 <div class="resultlist">
-  <table class='filminfo'>
-    <h1>{{this.title}}</h1>
-    {{#if this.director}}
-    <tr>
-      <td><strong>Director:</strong></td>
-      <td>{{this.director}}</td>
-    </tr>
+  <h1 class="filmtitle">{{this.title}}</h1> <!-- to click -->
+  <div class="filminfo"> <!-- to reveal-->
+    <table class='singlefilminfo'>
+      {{#if this.director}}
+      <tr>
+        <td><strong>Director:</strong></td>
+        <td>{{this.director}}</td>
+      </tr>
+      {{/if}}
+      {{#if this.writers}}
+      <tr>
+        <td><strong>Writer(s):</strong></td>
+        <td>{{this.writers}}</td>
+      </tr>
+      {{/if}}
+      {{#if this.actors}}
+      <tr>
+        <td><strong>Actors:</strong></td>
+        <td>{{this.actors}}</td>
+      </tr>
+      {{/if}}
+      {{#if this.genres}}
+      <tr>
+        <td><strong>Genre(s):</strong></td>
+        <td>{{this.genres}}</td>
+      </tr>
+      {{/if}}
+      {{#if this.runtime}}
+      <tr>
+        <td><strong>Runtime:</strong></td>
+        <td>{{this.runtime}}</td>
+      </tr>
+      {{/if}}
+      {{#if this.plot}}
+      <tr>
+        <td><strong>Plot:</strong></td>
+        <td>{{this.plot}}</td>
+      </tr>
+      {{/if}}
+    </table>
+    {{#if this.posterURL}}
+    <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="poster-film-list"/>
+    {{else}}
+    <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter-film-list" />
     {{/if}}
-    {{#if this.writers}}
-    <tr>
-      <td><strong>Writer(s):</strong></td>
-      <td>{{this.writers}}</td>
-    </tr>
-    {{/if}}
-    {{#if this.actors}}
-    <tr>
-      <td><strong>Actors:</strong></td>
-      <td>{{this.actors}}</td>
-    </tr>
-    {{/if}}
-    {{#if this.genres}}
-    <tr>
-      <td><strong>Genre(s):</strong></td>
-      <td>{{this.genres}}</td>
-    </tr>
-    {{/if}}
-    {{#if this.runtime}}
-    <tr>
-      <td><strong>Runtime:</strong></td>
-      <td>{{this.runtime}}</td>
-    </tr>
-    {{/if}}
-    {{#if this.plot}}
-    <tr>
-      <td><strong>Plot:</strong></td>
-      <td>{{this.plot}}</td>
-    </tr>
-    {{/if}}
-  </table>
-  {{#if this.posterURL}}
-  <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="poster-film-list"/>
-  {{else}}
-  <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter-film-list" />
-  {{/if}}
+  </div>
 </div>
 {{/each}}
 
