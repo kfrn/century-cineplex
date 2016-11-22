@@ -26,3 +26,7 @@ a {
 .poster-film-list, .noposter-film-list {
   max-width: 150px;
 }
+
+.resultlist {
+  padding: 10px;
+}
