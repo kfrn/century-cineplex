@@ -59,7 +59,7 @@ router.get('/filmresult', function(req, res, next) {
         res.render('result', filmData)
       }
       else if (req.query.submission === 'filmlist') {
-        var filmListData = {filmList: results[0], country: req.query.country, genre: req.query.genre, plot: req.query.plot}
+        var filmListData = {filmList: results, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
         console.log("filmListData.results are", filmListData);
         res.render('resultlist', filmListData)
       }
