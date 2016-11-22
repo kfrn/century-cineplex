@@ -48,18 +48,20 @@ router.get('/search', function(req, res, next) {
 router.get('/filmresult', function(req, res, next) {
   getSearchResults(req.query.country, req.query.genre, req.query.plot)
     .then(function(results) {
-      console.log("req.query.submission is", req.query.submission)
       var randomFilm = results[Math.floor(Math.random() * results.length)]
-      var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
       if (randomFilm === undefined) {
         res.render('noresult')
         console.log("No results!");
       }
       else if (req.query.submission === 'singlefilm') {
+        var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
+        console.log("results are", filmData);
         res.render('result', filmData)
       }
       else if (req.query.submission === 'filmlist') {
-        res.render('resultlist', filmData)
+        var filmListData = {filmList: results[0], country: req.query.country, genre: req.query.genre, plot: req.query.plot}
+        console.log("filmListData.results are", filmListData);
+        res.render('resultlist', filmListData)
       }
     })
     .catch(function(error) {
