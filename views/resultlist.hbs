@@ -1,12 +1,52 @@
-<!-- <p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}:</p> -->
+<p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}:</p>
 
-<p>Here is the first result from {{country}} that matches the genre '{{genre}}'{{#if plot}}, and has a plot summary{{/if}}:</p>
+<!-- <p>Here is the first result from {{country}} that matches the genre '{{genre}}'{{#if plot}}, and has a plot summary{{/if}}:</p> -->
 
-<ul class='filminfo'>
-  <li>The title is: {{filmList.title}}</li>
-  <li>The actors are: {{filmList.actors}}</li>
-</ul>
-
+{{#each filmList}}
+  <table class='filminfo'>
+    <tr>
+      <td><strong>Title:</strong></td>
+      <td>{{this.title}}</td>
+    </tr>
+    {{#if this.director}}
+      <tr>
+        <td><strong>Director:</strong></td>
+        <td>{{this.director}}</td>
+      </tr>
+    {{/if}}
+    {{#if this.writers}}
+      <tr>
+        <td><strong>Writer(s):</strong></td>
+        <td>{{this.writers}}</td>
+      </tr>
+    {{/if}}
+    {{#if this.actors}}
+      <tr>
+        <td><strong>Actors:</strong></td>
+        <td>{{this.actors}}</td>
+      </tr>
+    {{/if}}
+    {{#if this.genres}}
+      <tr>
+        <td><strong>Genre(s):</strong></td>
+        <td>{{this.genres}}</td>
+      </tr>
+    {{/if}}
+    {{#if this.runtime}}
+      <tr>
+        <td><strong>Runtime:</strong></td>
+        <td>{{this.runtime}}</td>
+      </tr>
+    {{/if}}
+    {{#if this.plot}}
+      <tr>
+        <td><strong>Plot:</strong></td>
+        <td>{{this.plot}}</td>
+      </tr>
+    {{/if}}
+  </table>
+  <br />
+{{/each}}
 
 <p>
   <a href="/">home</a> | <a href="/search">back to search page</a>
