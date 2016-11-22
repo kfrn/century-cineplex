@@ -23,6 +23,6 @@ a {
 }
 
 
-.poster-film-list {
+.poster-film-list, .noposter-film-list {
   max-width: 150px;
 }
