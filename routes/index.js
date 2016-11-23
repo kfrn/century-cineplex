@@ -5,6 +5,7 @@ var getFilms = require('../functions/datafromDB').getFilms
 var getCountries = require('../functions/datafromDB').getCountries
 var getSearchResults = require('../functions/datafromDB').getSearchResults
 var getGenres = require('../functions/datafromDB').getGenres
+var getAllData = require('../functions/dbBasics').getAllData
 
 module.exports = router
 
@@ -62,7 +63,7 @@ router.get('/filmresult', function(req, res, next) {
         res.render('noresult')
         console.log("No results!");
       }
-      else if (req.query.submission === 'singlefilm') {
+      else if (req.query.submission === '') {
         var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
         console.log("results are", filmData);
         res.render('result', filmData)
@@ -80,5 +81,12 @@ router.get('/filmresult', function(req, res, next) {
 
 /* GET info page */
 router.get('/info', function(req, res, next) {
-  res.render('info', { year: centuryAgo, month: month } )
+  getAllData()
+    .then(function(dbEntries) {
+      var data = {database: dbEntries[0], year: centuryAgo, month: month}
+      res.render('info', data)
+  })
+  .catch(function(error) {
+    console.log(error)
+  })
 })
