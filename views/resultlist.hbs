@@ -1,11 +1,11 @@
 <p class='title'>This month at the Century Cineplex ...</p>
 
-<p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}:</p>
+<p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}. Click to see details:</p>
 
 {{#each filmList}}
 <div class="resultlist">
-  <h1 class="filmtitle">{{this.title}}</h1> <!-- to click -->
-  <div class="filminfo"> <!-- to reveal-->
+  <h1 class="filmtitle">{{this.title}}</h1>
+  <div class="filminfo" >
     <table class='singlefilminfo'>
       {{#if this.director}}
       <tr>

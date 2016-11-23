@@ -31,6 +31,14 @@ a {
   padding: 10px;
 }
 
-h1 {
-  font-size: 1.3rem;
+.filmtitle {
+  font-family: 'Flamenco', cursive;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-decoration: underline;
+  color: #453729
+}
+
+.filminfo {
+  display: none;
 }
