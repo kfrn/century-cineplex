@@ -1,4 +1,9 @@
-<p class='title'>This month at the Century Cineplex ...</p>
+<p class='title'>{{month}}, {{year}} in film ...</p>
+
+
+{{#each database}}
+<p>{{this.title}}</p>
+{{/each}}
 
 <img src="../images/underconstruction.gif" alt="Cheesy under construction picture" />
 
