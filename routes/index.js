@@ -69,7 +69,7 @@ router.get('/filmresult', function(req, res, next) {
       }
       else if (req.query.submission === 'filmlist') {
         var filmListData = {filmList: results, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
-        console.log("filmListData.results are", filmListData);
+        console.log("filmListData are", filmListData);
         res.render('resultlist', filmListData)
       }
     })

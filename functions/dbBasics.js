@@ -16,12 +16,3 @@ function clearDB() {
   return knex('films').del()
   // return knex.raw('DELETE FROM "main"."films"')
 }
-
-
-// clearDB()
-//   .then(function() {
-//     console.log("database cleared");
-//   })
-//   .catch(function(error) {
-//     console.log(error)
-//   })
