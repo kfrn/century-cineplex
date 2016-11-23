@@ -37,6 +37,7 @@ router.get('/search', function(req, res, next) {
   getCountries()
     .then(function(req) {
       var countryList = req.map((elem) => elem.countries).sort()
+      countryList.unshift('any')
       var data = {countryList: countryList, year: centuryAgo, month: month}
       getGenres()
         .then(function(req) {
