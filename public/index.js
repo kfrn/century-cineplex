@@ -1,17 +1,22 @@
 var titles = document.getElementsByClassName('filmtitle')
-var keys = Object.keys(titles)
+var titlekeys = Object.keys(titles)
 var htmlTitles = []
 
-keys.forEach((key) => {
-  htmlTitles.push(titles[key])
-})
 
+titlekeys.forEach((key) => htmlTitles.push(titles[key]))
 
 htmlTitles.forEach((title) => {
   title.onclick=() => {
     var filminfo = title.nextElementSibling
-    filminfo.style.display == 'none' ? filminfo.style.display = 'block' : filminfo.style.display = 'none'
-    console.log("title is", title)
-    console.log("filminfo (sibling) is", filminfo)
+    hideAllFilmInfo()
+    filminfo.style.display == 'block' ? filminfo.style.display = 'none' : filminfo.style.display = 'block'
   }
 })
+
+function hideAllFilmInfo() {
+  var filminfo = document.getElementsByClassName('filminfo')
+  var filminfokeys = Object.keys(filminfo)
+  var filminfoelements = []
+  filminfokeys.forEach((key) => filminfoelements.push(filminfo[key]))
+  filminfoelements.forEach((eachinfo) => eachinfo.style.display = 'none')
+}
