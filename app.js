@@ -9,7 +9,7 @@ var hbs = require('hbs')
 var index = require('./routes/index')
 // var users = require('./routes/users')
 
-// var clearDB = require('./functions/dbBasics').clearDB
+var clearDB = require('./functions/dbBasics').clearDB
 var populateDB = require('./functions/populateDB')
 
 var app = express()
@@ -56,7 +56,19 @@ hbs.registerHelper('selected', function(option, value){
   }
 })
 
-// Populate database
-populateDB()
+
+function dataLoop() {
+  clearDB()
+    .then(function() {
+      console.log("database cleared");
+      populateDB()
+      setTimeout(dataLoop, 450000000)
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+}
+
+dataLoop()
 
 module.exports = app
