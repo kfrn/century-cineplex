@@ -83,7 +83,7 @@ router.get('/filmresult', function(req, res, next) {
 router.get('/info', function(req, res, next) {
   getAllData()
     .then(function(dbEntries) {
-      var data = {database: dbEntries[0], year: centuryAgo, month: month}
+      var data = {database: dbEntries, year: centuryAgo, month: month}
       res.render('info', data)
   })
   .catch(function(error) {
