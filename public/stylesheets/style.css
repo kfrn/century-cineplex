@@ -42,3 +42,7 @@ a {
 .filminfo {
   display: none;
 }
+
+li {
+  margin: 10px;
+}

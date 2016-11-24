@@ -1,13 +1,13 @@
 <p class='title'>This month at the Century Cineplex ...</p>
 
-<p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}. Click to see details:</p>
+<p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}. Click on a title to see details:</p>
 
 <button name='expandall' onclick=expandAllFilmInfo()>Expand all</button>
 <button name='collapseall' onclick=hideAllFilmInfo()>Collapse all</button>
 
+<ol class="resultlist">
 {{#each filmList}}
-<div class="resultlist">
-  <h1 class="filmtitle">{{this.title}}</h1>
+  <li class="filmtitle">{{this.title}}</li>
   <div class="filminfo" >
     <table class='singlefilminfo'>
       <tr>
@@ -57,8 +57,8 @@
     <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter-film-list" />
     {{/if}}
   </div>
-</div>
 {{/each}}
+</ol>
 
 <p>
   <a href="/">home</a> | <a href="/search">back to search page</a>
