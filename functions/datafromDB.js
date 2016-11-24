@@ -37,9 +37,10 @@ function getSearchResults(country, genre, plot) {
       return knex('films')
       .where('countries', '=', country)
       .andWhere('genres', 'like', genre)
-  } else if (country != 'any' && genre == 'any' && plot != 'on') { // HAS country; NO genre, NO plot
+  } else if (country != 'any' && genre == 'any' && plot == 'on') { // HAS country; NO genre, HAS plot FIXING!!@@@
       return knex('films')
       .where('countries', '=', country)
+      .andWhere('plot', '<>', '')
   } else if (country == 'any' && genre != 'any' && plot == 'on') { // NO country; HAS genre, HAS plot
       return knex('films')
       .andWhere('genres', 'like', genre)
