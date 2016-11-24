@@ -36,6 +36,9 @@ function getSearchResults(country, genre, plot) {
       return knex('films')
       .where('countries', '=', country)
       .andWhere('genres', 'like', '%' +  genre + '%')
+  } else if (country != 'any' && genre == 'any' && plot != 'on') { // HAS country, NO genre; NO plot 
+      return knex('films')
+      .where('countries', '=', country)
   } else if (country != 'any' && genre == 'any' && plot == 'on') { // HAS country; NO genre, HAS plot
       return knex('films')
       .where('countries', '=', country)
