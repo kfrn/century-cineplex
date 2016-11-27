@@ -1,32 +1,36 @@
-<p class='title'>Welcome to the Century Cineplex.</p>
+<div class="container">
 
-<p>Search the films of {{month}}, {{year}}.</p>
+  <h1 class='title'>Welcome to the Century Cineplex.</h1>
 
-<form class="" action="/filmresult" method="get">
-  <p>
-    Country:
-    <select class="countries" name="country">
-      {{#each countryList}}
-        <option value={{this}} {{selected this ../selectedState}}>{{this}}</option>
-      {{/each}}
-    </select>
-  </p>
-  <p>
-    Genre:
-    <select class="genre" name="genre">
-      {{#each genres}}
-        <option value="{{this}}">{{this}}</option>
-      {{/each}}
-    </select>
-  </p>
-  <p>
-    Only films with a plot summary, please
-    <input type="checkbox" id="plot" name="plot">
-  </p>
-  <button type="submit" name='submission' value='singlefilm'>Find me a film!</button>
-  <button type="submit" name='submission' value='filmlist'>Give me a list of matches</button>
-</form>
+  <p>Search the films of {{month}}, {{year}}.</p>
 
-<p>
-  <a href="/">home</a>
-</p>
+  <form class="" action="/filmresult" method="get">
+    <p>
+      <span class="label">Country:</span>
+      <select class="countries" name="country">
+        {{#each countryList}}
+          <option value={{this}} {{selected this ../selectedState}}>{{this}}</option>
+        {{/each}}
+      </select>
+    </p>
+    <p>
+      <span class="label">Genre:</span>
+      <select class="genre" name="genre">
+        {{#each genres}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </p>
+    <p>
+      Only films with a plot summary, please
+      <input type="checkbox" id="plot" name="plot">
+    </p>
+    <button type="submit" name='submission' value='singlefilm'>Find me a film!</button>
+    <button type="submit" name='submission' value='filmlist'>Give me a list of matches</button>
+  </form>
+
+  <p>
+    <a href="/">home</a>
+  </p>
+
+</div>

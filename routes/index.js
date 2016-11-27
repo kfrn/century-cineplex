@@ -63,7 +63,7 @@ router.get('/filmresult', function(req, res, next) {
         res.render('noresult')
         console.log("No results!");
       }
-      else if (req.query.submission === '') {
+      else if (req.query.submission === 'singlefilm') {
         var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
         console.log("results are", filmData);
         res.render('result', filmData)
