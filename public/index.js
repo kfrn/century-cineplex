@@ -30,19 +30,19 @@ function expandAllFilmInfo() {
 
 
 function anyExpanded() {
-  var filtered = filminfoelements.filter((elem) => elem.style.display = 'block')
-  console.log(filtered.length, "length of elements with display 'block' is")
-  console.log("filtered is", filtered)
-  filtered.length !== 0 ? true : false
+  var filtered = filminfoelements.filter((elem) => elem.style.display == 'block')
+  if ( filtered.length !== 0 ) {
+    return true
+  } else {
+    return false
+  }
 }
 
 
-// function expandCollapse() {
-//   if ( anyExpanded() ) { // Check if any elements are detected to have "display: 'block'"
-//     console.log("Something is expanded, therefore collapse all")
-//     hideAllFilmInfo()
-//   } else {
-//     console.log("Nothing is expanded, therefore expand all")
-//     expandAllFilmInfo()
-//   }
-// }
+function expandCollapse() {
+  if ( anyExpanded() ) { 
+    hideAllFilmInfo()
+  } else {
+    expandAllFilmInfo()
+  }
+}
