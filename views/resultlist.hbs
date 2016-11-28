@@ -2,8 +2,9 @@
 
 <p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}. Click on a title to see details:</p>
 
-<button name='expandall' onclick=expandAllFilmInfo()>Expand all</button>
-<button name='collapseall' onclick=hideAllFilmInfo()>Collapse all</button>
+<!-- <button name='expandall' onclick=expandAllFilmInfo()>Expand all</button>
+<button name='collapseall' onclick=hideAllFilmInfo()>Collapse all</button> -->
+<button name='expand-collapse' onclick=expandCollapse()>Expand/Collapse all</button>
 
 <ol class="resultlist">
 {{#each filmList}}
