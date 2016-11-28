@@ -28,21 +28,36 @@ function getGenres() {
 
 function getSearchResults(country, genre, plot) {
   if (country != 'any' && genre != 'any' && plot == 'on') { // HAS country, HAS plot, HAS genre
-    return knex('films').where('countries', '=', country).andWhere('genres', 'like', genre).andWhere('plot', '<>', '')
+    return knex('films')
+    .where('countries', '=', country)
+    .andWhere('genres', 'like', '%' +  genre + '%')
+    .andWhere('plot', '<>', '')
   } else if (country != 'any' && genre != 'any' && plot != 'on') { // HAS country, HAS genre; NO plot
-      return knex('films').where('countries', '=', country).andWhere('genres', 'like', genre)
-  } else if (country != 'any' && genre == 'any' && plot != 'on') { // HAS country; NO genre, NO plot FIXING
-      return knex('films').where('countries', '=', country)
+      return knex('films')
+      .where('countries', '=', country)
+      .andWhere('genres', 'like', '%' +  genre + '%')
+  } else if (country != 'any' && genre == 'any' && plot != 'on') { // HAS country, NO genre; NO plot
+      return knex('films')
+      .where('countries', '=', country)
+  } else if (country != 'any' && genre == 'any' && plot == 'on') { // HAS country; NO genre, HAS plot
+      return knex('films')
+      .where('countries', '=', country)
+      .andWhere('plot', '<>', '')
   } else if (country == 'any' && genre != 'any' && plot == 'on') { // NO country; HAS genre, HAS plot
-      return knex('films').andWhere('genres', 'like', genre).andWhere('plot', '<>', '')
+      return knex('films')
+      .andWhere('genres', 'like', '%' +  genre + '%')
+      .andWhere('plot', '<>', '')
   } else if (country == 'any' && genre == 'any' && plot == 'on') { // NO country, NO genre; HAS plot
-      return knex('films').andWhere('plot', '<>', '')
-  } else if (country == 'any' && genre != 'any' && plot != 'on') { // NO country, HAS genre NO plot
-      return knex('films').andWhere('genres', 'like', genre)
+      return knex('films')
+      .andWhere('plot', '<>', '')
+  } else if (country == 'any' && genre != 'any' && plot != 'on') { // NO country, HAS genre, NO plot
+      return knex('films')
+      .andWhere('genres', 'like', '%' +  genre + '%')
   } else if (country == 'any' && genre == 'any' && plot != 'on') { // NO country; NO genre, NO plot
       return knex('films')
   }
 }
+
 
 /* Raw SQL */
 // SELECT * FROM 'films' WHERE countries = 'USA' AND genres LIKE 'drama' AND plot <> '''
