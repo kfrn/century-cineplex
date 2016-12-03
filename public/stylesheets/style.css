@@ -1,7 +1,8 @@
 /* UNIVERSALS */
 
 body {
-  font-family: 'Lato', sans-serif;  /*font: 32px;*/
+  font-family: 'Lato', sans-serif;
+  /*font: 32px;*/
   font-size: 1rem;
   text-align: center;
 }
@@ -14,6 +15,15 @@ a {
   font-family: 'Flamenco', cursive;
   font-size: 1.6rem;
   font-weight: normal;
+}
+
+
+/*#loaded {
+  display: none;
+}*/
+
+#loading {
+  display: none
 }
 
 .sourcecode {
@@ -42,11 +52,13 @@ button {
   padding: 9px;
 }
 
+
 /* MOBILE-FIRST STYLING */
 
 .kino-eye, .film-poster, .noposter {
   max-width: 100%;
 }
+
 
 /* LIST ITEMS */
 
@@ -60,6 +72,7 @@ li {
   margin: 10px;
 }
 
+
 /* FILM RESULTS */
 
 .randomfilmtitle {
@@ -69,13 +82,14 @@ li {
 table {
   text-align: left;
   padding-bottom: 1.2rem;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 td {
   padding-right: 20px;
 }
+
 
 /* SETUP & STRUCTURE */
 
@@ -83,7 +97,6 @@ td {
   margin: 0 auto;
   max-width: 800px;
 }
-
 
 @media only screen and (min-width: 400px) {
   .kino-eye {
@@ -102,7 +115,6 @@ td {
 
 
 /* TBD */
-
 
 .poster-film-list, .noposter-film-list {
   max-width: 150px;
