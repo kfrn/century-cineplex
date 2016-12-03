@@ -1,66 +1,68 @@
-<p class='title'>This month at the Century Cineplex ...</p>
+<div class="container">
 
-<p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}. Click on a title to see details:</p>
+  <p class='title'>This month at the Century Cineplex ...</p>
 
-<!-- <button name='expandall' onclick=expandAllFilmInfo()>Expand all</button>
-<button name='collapseall' onclick=hideAllFilmInfo()>Collapse all</button> -->
-<button name='expand-collapse' onclick=expandCollapse()>Expand/Collapse all</button>
+  <p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}. Click on a title to see details:</p>
 
-<ol class="resultlist">
-{{#each filmList}}
-  <li class="filmtitle">{{this.title}}</li>
-  <div class="filminfo" >
-    <table class='singlefilminfo'>
-      <tr>
-        <td><strong>Title:</strong></td>
-        <td>{{this.title}}</td>
-      </tr>
-      {{#if this.director}}
-      <tr>
-        <td><strong>Director:</strong></td>
-        <td>{{this.director}}</td>
-      </tr>
-      {{/if}}
-      {{#if this.writers}}
-      <tr>
-        <td><strong>Writer(s):</strong></td>
-        <td>{{this.writers}}</td>
-      </tr>
-      {{/if}}
-      {{#if this.actors}}
-      <tr>
-        <td><strong>Actors:</strong></td>
-        <td>{{this.actors}}</td>
-      </tr>
-      {{/if}}
-      {{#if this.genres}}
-      <tr>
-        <td><strong>Genre(s):</strong></td>
-        <td>{{this.genres}}</td>
-      </tr>
-      {{/if}}
-      {{#if this.runtime}}
-      <tr>
-        <td><strong>Runtime:</strong></td>
-        <td>{{this.runtime}}</td>
-      </tr>
-      {{/if}}
-      {{#if this.plot}}
-      <tr>
-        <td><strong>Plot:</strong></td>
-        <td>{{this.plot}}</td>
-      </tr>
-      {{/if}}
-    </table>
-    {{#if this.posterURL}}
-    <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="poster-film-list"/>
-    {{else}}
-    <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter-film-list" />
-    {{/if}}
-  </div>
-{{/each}}
-</ol>
+  <button name='expand-collapse' onclick=expandCollapse()>Expand/Collapse all</button>
 
-<p>
-  <a href="/">home</a> | <a href="/search">back to search page</a>
-</p>
+  <ol class="resultlist">
+    {{#each filmList}}
+    <li class="filmtitle">{{this.title}}</li>
+    <div class="filminfo" >
+      <table class='singlefilminfo'>
+        <tr>
+          <td><strong>Title:</strong></td>
+          <td>{{this.title}}</td>
+        </tr>
+        {{#if this.director}}
+        <tr>
+          <td><strong>Director:</strong></td>
+          <td>{{this.director}}</td>
+        </tr>
+        {{/if}}
+        {{#if this.writers}}
+        <tr>
+          <td><strong>Writer(s):</strong></td>
+          <td>{{this.writers}}</td>
+        </tr>
+        {{/if}}
+        {{#if this.actors}}
+        <tr>
+          <td><strong>Actors:</strong></td>
+          <td>{{this.actors}}</td>
+        </tr>
+        {{/if}}
+        {{#if this.genres}}
+        <tr>
+          <td><strong>Genre(s):</strong></td>
+          <td>{{this.genres}}</td>
+        </tr>
+        {{/if}}
+        {{#if this.runtime}}
+        <tr>
+          <td><strong>Runtime:</strong></td>
+          <td>{{this.runtime}}</td>
+        </tr>
+        {{/if}}
+        {{#if this.plot}}
+        <tr>
+          <td><strong>Plot:</strong></td>
+          <td>{{this.plot}}</td>
+        </tr>
+        {{/if}}
+      </table>
+      {{#if this.posterURL}}
+      <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="poster-film-list"/>
+      {{else}}
+      <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter-film-list" />
+      {{/if}}
+    </div>
+    {{/each}}
+  </ol>
+
+  <p>
+    <a href="/">home</a> | <a href="/search">back to search page</a>
+  </p>
+
+</div>

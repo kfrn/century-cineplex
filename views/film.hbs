@@ -1,63 +1,62 @@
 <div class="container">
 
+  <p class='title'>This month at the Century Cineplex ...</p>
 
-<p class='title'>This month at the Century Cineplex ...</p>
+  <p>How about <span class="randomfilmtitle">{{title}}</span>?</p>
 
-<p>How about <span class="randomfilmtitle">{{title}}</span>?</p>
-
-<div class="">
-  <div class="singlefilminfo">
-    <table>
-      <tr>
-        <td><strong>Country:</strong></td>
-        <td>{{countries}}</td>
-      </tr>
-      {{#if director}}
+  <div class="">
+    <div class="singlefilminfo">
+      <table>
         <tr>
-          <td><strong>Director(s):</strong></td>
-          <td>{{director}}</td>
+          <td><strong>Country:</strong></td>
+          <td>{{countries}}</td>
         </tr>
-      {{/if}}
-      {{#if writers}}
-      <tr>
-        <td><strong>Writer(s):</strong></td>
-        <td>{{writers}}</td>
-      </tr>
-      {{/if}}
-      {{#if actors}}
+        {{#if director}}
+          <tr>
+            <td><strong>Director(s):</strong></td>
+            <td>{{director}}</td>
+          </tr>
+        {{/if}}
+        {{#if writers}}
         <tr>
-          <td><strong>Actors:</strong></td>
-          <td>{{actors}}</td>
+          <td><strong>Writer(s):</strong></td>
+          <td>{{writers}}</td>
         </tr>
-      {{/if}}
-      <tr>
-        <td><strong>Genre(s):</strong></td>
-        <td>{{genres}}</td>
-      </tr>
-      {{#if runtime}}
+        {{/if}}
+        {{#if actors}}
+          <tr>
+            <td><strong>Actors:</strong></td>
+            <td>{{actors}}</td>
+          </tr>
+        {{/if}}
         <tr>
-          <td><strong>Runtime:</strong></td>
-          <td>{{runtime}} minutes</td>
+          <td><strong>Genre(s):</strong></td>
+          <td>{{genres}}</td>
         </tr>
+        {{#if runtime}}
+          <tr>
+            <td><strong>Runtime:</strong></td>
+            <td>{{runtime}} minutes</td>
+          </tr>
+        {{/if}}
+        {{#if plot}}
+          <tr>
+            <td><strong>Plot summary:</strong></td>
+            <td>{{plot}}</td>
+          </tr>
+        {{/if}}
+      </table>
+    </div>
+    <div class="poster">
+      {{#if posterURL}}
+        <img src={{posterURL}} alt="Film poster for {{title}}" class="film-poster"/>
+      {{else}}
+        <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter" />
       {{/if}}
-      {{#if plot}}
-        <tr>
-          <td><strong>Plot summary:</strong></td>
-          <td>{{plot}}</td>
-        </tr>
-      {{/if}}
-    </table>
+    </div>
   </div>
-  <div class="poster">
-    {{#if posterURL}}
-      <img src={{posterURL}} alt="Film poster for {{title}}" class="film-poster"/>
-    {{else}}
-      <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter" />
-    {{/if}}
-  </div>
-</div>
 
-<p>
-  <a href="/">home</a> | <a href="/search">search page</a>
-</p>
+  <p>
+    <a href="/">home</a> | <a href="/search">search page</a>
+  </p>
 </div>

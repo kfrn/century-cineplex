@@ -111,6 +111,9 @@ td {
   .noposter {
     max-width: 320px;
   }
+  .singlefilminfo {
+    max-width: 80%;
+  }
 }
 
 
@@ -121,6 +124,7 @@ td {
 }
 
 .resultlist {
+  list-style-position: inside;
   padding: 10px;
 }
 
@@ -135,3 +139,5 @@ td {
 .filminfo {
   display: none;
 }
+
+8
