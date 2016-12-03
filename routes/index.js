@@ -37,7 +37,8 @@ router.get('/film/', function(req, res, next) {
 router.get('/search', function(req, res, next) {
   getCountries()
     .then(function(req) {
-      var countryList = req.map((elem) => elem.countries).sort()
+      var countryList = req.map((elem) => elem.countries)
+      countryList = countryList.join(" ").replace(/\,/g, '').split(" ").sort().filter((item, idx, self) => idx == self.indexOf(item))
       countryList.unshift('any')
       var data = {countryList: countryList, year: centuryAgo, month: month}
       getGenres()
