@@ -17,14 +17,14 @@ a {
   font-weight: normal;
 }
 
-
-/*#loaded {
+#loaded {
   display: none;
-}*/
-
-#loading {
-  display: none
 }
+
+
+/*#loading {
+  display: none
+}*/
 
 .sourcecode {
   font-size: 0.9rem;
