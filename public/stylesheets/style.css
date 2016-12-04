@@ -55,7 +55,7 @@ button {
 
 /* MOBILE-FIRST STYLING */
 
-.kino-eye, .film-poster, .noposter {
+.kino-eye, .film-poster, .noposter, .construction {
   max-width: 100%;
 }
 
@@ -118,6 +118,9 @@ tr {
   .singlefilminfo {
     max-width: 80%;
   }
+  .construction {
+    max-width: 600px;
+  }
 }
 
 
@@ -143,5 +146,3 @@ tr {
 .filminfo {
   display: none;
 }
-
-8
