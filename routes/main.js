@@ -39,24 +39,24 @@ router.get('/random/', (req, res, next) => {
 
 
 /* GET film selection page */
-router.get('/search', function(req, res, next) {
-  getCountries()
-    .then(function(req) {
-      var countryList = req.map((elem) => elem.countries)
-      countryList = countryList.join(" ").replace(/\,/g, '').split(" ").sort().filter((item, idx, self) => idx == self.indexOf(item))
-      countryList.unshift('any')
-      var data = {countryList: countryList, year: centuryAgo, month: month}
-      getGenres()
-        .then(function(req) {
-          var genreList = req.map((elem) => elem.genres).join(', ').split(", ").filter((item, idx, self) => idx == self.indexOf(item)).sort()
-          genreList.unshift('any')
-          data.genres = genreList
-          // console.log("data is .....",data)
-          res.render('search', data)
-        })
-    })
-    .catch(function(error) {
-      console.log(error)
+router.get('/search', (req, res, next) => {
+  request.get('http://cinema-1917-api.herokuapp.com/api/v1/countries')
+    .end((err, countries) => {
+      if (err) res.render('error', err)
+      if (countries) {
+        var countryList = countries.body.countryList
+        countryList.unshift('any')
+        request.get('http://cinema-1917-api.herokuapp.com/api/v1/genres')
+          .end((error, genres) => {
+            if (error) res.render('error', error)
+            if (genres) {
+              var genreList = genres.body.genres
+              genreList.unshift('any')
+              var data = {countryList: countryList, genres: genreList, year: centuryAgo, month: longMonth}
+              res.render('search', data)
+            }
+          })
+      }
     })
 })
 
