@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const request = require('superagent')
 
-module.exports = router
+const filterSearchResults = require('../functions/filterSearchResults')
 
 const currentDate = new Date
 const centuryAgo = currentDate.getFullYear() - 100
@@ -20,9 +20,7 @@ router.get('/random/', (req, res, next) => {
   request.get('http://cinema-1917-api.herokuapp.com/api/v1/films')
     .query({ releaseMonth: shortMonth })
     .end((error, result) => {
-      if (error) {
-        res.render('error', error)
-      }
+      if (error) res.render('error', error)
       if (result) {
         var filmResults = result.body.results
         var hasPlotOrPoster = filmResults.filter(elem => elem.plot !== 'unknown' || elem.posterURL !== null)
@@ -33,10 +31,6 @@ router.get('/random/', (req, res, next) => {
       }
   })
 })
-
-
-// BELOW HERE NOT REWRITTEN!!!!!
-
 
 /* GET film selection page */
 router.get('/search', (req, res, next) => {
@@ -61,26 +55,26 @@ router.get('/search', (req, res, next) => {
 })
 
 /* GET film result page */
-router.get('/filmresult', function(req, res, next) {
-  getSearchResults(req.query.country, req.query.genre, req.query.plot)
-    .then(function(results) {
-      var randomFilm = results[Math.floor(Math.random() * results.length)]
-      if (randomFilm === undefined) {
-        res.render('noresult')
-        console.log("No results!");
+router.get('/filmresult', (req, res, next) => {
+  request.get('http://cinema-1917-api.herokuapp.com/api/v1/films')
+    .query({ releaseMonth: shortMonth })
+    .end((error, result) => {
+      if (error) res.render('error', error)
+      if (result) {
+        var plot = req.query.plot
+        if (plot === undefined) plot = 'off'
+        var searchMatches = filterSearchResults(result.body.results, req.query.country, req.query.genre, plot)
+        var randomMatch = searchMatches[Math.floor(Math.random() * searchMatches.length)]
+        if (randomMatch === undefined) res.render('noresult')
+        else if (req.query.submission === 'singlefilm') {
+          var filmData = {randomFilm: randomMatch, country: req.query.country, genre: req.query.genre, plot: plot}
+          res.render('result', filmData)
+        } else if (req.query.submission === 'filmlist') {
+          var filmListData = {filmList: searchMatches, country: req.query.country, genre: req.query.genre, plot: plot}
+          res.render('resultlist', filmListData)
+        }
       }
-      else if (req.query.submission === 'singlefilm') {
-        var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
-        console.log("results are", filmData);
-        res.render('result', filmData)
-      }
-      else if (req.query.submission === 'filmlist') {
-        var filmListData = {filmList: results, country: req.query.country, genre: req.query.genre, plot: req.query.plot}
-        console.log("filmListData are", filmListData);
-        res.render('resultlist', filmListData)
-      }
-    })
-    .catch(function(error) {
-      console.log(error)
     })
 })
+
+module.exports = router
