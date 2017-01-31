@@ -5,7 +5,7 @@ const request = require('superagent')
 const filterSearchResults = require('../functions/filterSearchResults')
 const deleteUnknowns = require('../functions/deleteUnknowns')
 
-const currentDate = new Date
+const currentDate = new Date()
 const centuryAgo = currentDate.getFullYear() - 100
 const locale = 'en-us'
 const shortMonth = currentDate.toLocaleString(locale, {month: 'short'})
@@ -31,7 +31,7 @@ router.get('/random/', (req, res, next) => {
         // console.log({randomFilm})
         res.render('randomfilm', randomFilm)
       }
-  })
+    })
 })
 
 /* GET film selection page */
@@ -69,7 +69,7 @@ router.get('/filmresult', (req, res, next) => {
         var randomMatch = searchMatches[Math.floor(Math.random() * searchMatches.length)]
         if (randomMatch === undefined) res.render('noresult')
         else if (req.query.submission === 'singlefilm') {
-          randomFilm = deleteUnknowns(randomMatch)
+          var randomFilm = deleteUnknowns(randomMatch)
           var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: plot}
           res.render('result', filmData)
         } else if (req.query.submission === 'filmlist') {
