@@ -51,18 +51,4 @@ hbs.registerHelper('selected', function(option, value){
   }
 })
 
-// function dataLoop() {
-//   clearDB()
-//     .then(function() {
-//       console.log("database cleared");
-//       populateDB()
-//       setTimeout(dataLoop, 450000000)
-//     })
-//     .catch(function(error) {
-//       console.log(error)
-//     })
-// }
-//
-// dataLoop()
-
 module.exports = app

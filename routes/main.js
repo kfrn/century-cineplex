@@ -3,6 +3,7 @@ const router = express.Router()
 const request = require('superagent')
 
 const filterSearchResults = require('../functions/filterSearchResults')
+const deleteUnknowns = require('../functions/deleteUnknowns')
 
 const currentDate = new Date
 const centuryAgo = currentDate.getFullYear() - 100
@@ -25,8 +26,9 @@ router.get('/random/', (req, res, next) => {
         var filmResults = result.body.results
         var hasPlotOrPoster = filmResults.filter(elem => elem.plot !== 'unknown' || elem.posterURL !== null)
         var randomFilm = hasPlotOrPoster[Math.floor(Math.random() * hasPlotOrPoster.length)]
+        randomFilm = deleteUnknowns(randomFilm)
         console.log(`There are ${filmResults.length} results total, only ${hasPlotOrPoster.length} of which have either a poster URL or plot summary. Here's a random pick from that ${hasPlotOrPoster.length}.`)
-        console.log({randomFilm})
+        // console.log({randomFilm})
         res.render('randomfilm', randomFilm)
       }
   })
@@ -67,10 +69,12 @@ router.get('/filmresult', (req, res, next) => {
         var randomMatch = searchMatches[Math.floor(Math.random() * searchMatches.length)]
         if (randomMatch === undefined) res.render('noresult')
         else if (req.query.submission === 'singlefilm') {
-          var filmData = {randomFilm: randomMatch, country: req.query.country, genre: req.query.genre, plot: plot}
+          randomFilm = deleteUnknowns(randomMatch)
+          var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: plot}
           res.render('result', filmData)
         } else if (req.query.submission === 'filmlist') {
-          var filmListData = {filmList: searchMatches, country: req.query.country, genre: req.query.genre, plot: plot}
+          var mappedMatches = searchMatches.map(deleteUnknowns)
+          var filmListData = {filmList: mappedMatches, country: req.query.country, genre: req.query.genre, plot: plot}
           res.render('resultlist', filmListData)
         }
       }
