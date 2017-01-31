@@ -54,3 +54,5 @@ function buildIMDbURL() {
   // console.log(URL);
   return URL
 }
+
+buildIMDbURL()

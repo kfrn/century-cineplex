@@ -6,11 +6,7 @@ var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var hbs = require('hbs')
 
-var index = require('./routes/index')
-// var users = require('./routes/users')
-
-var clearDB = require('./functions/dbBasics').clearDB
-var populateDB = require('./functions/populateDB')
+var main = require('./routes/main')
 
 var app = express()
 var port = process.env.PORT || 3000
@@ -27,8 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', index)
-// app.use('/users', users)
+app.use('/', main)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,7 +50,6 @@ hbs.registerHelper('selected', function(option, value){
     return ''
   }
 })
-
 
 // function dataLoop() {
 //   clearDB()

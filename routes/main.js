@@ -1,37 +1,42 @@
-var express = require('express')
-var router = express.Router()
-
-var getFilms = require('../functions/datafromDB').getFilms
-var getCountries = require('../functions/datafromDB').getCountries
-var getSearchResults = require('../functions/datafromDB').getSearchResults
-var getGenres = require('../functions/datafromDB').getGenres
-var getAllData = require('../functions/dbBasics').getAllData
+const express = require('express')
+const router = express.Router()
+const request = require('superagent')
 
 module.exports = router
 
-var currentDate = new Date
-var centuryAgo = currentDate.getFullYear() - 100
-var locale = 'en-us'
-var month = currentDate.toLocaleString(locale, {month: 'long'})
+const currentDate = new Date
+const centuryAgo = currentDate.getFullYear() - 100
+const locale = 'en-us'
+const shortMonth = currentDate.toLocaleString(locale, {month: 'short'})
+const longMonth = currentDate.toLocaleString(locale, {month: 'long'})
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Century Cineplex', year: centuryAgo, month: month })
+router.get('/', (req, res, next) => {
+  res.render('index', { title: 'Century Cineplex', year: centuryAgo, month: longMonth })
 })
 
-/* GET film page */
-router.get('/film/', function(req, res, next) {
-  getFilms()
-    .then(function(req) {
-      var randomFilm = req[Math.floor(Math.random() * req.length)]
-      // console.log("A random film is", randomFilm)
-      console.log("There are", req.length, "results - giving you a random pick of that", req.length)
-      res.render('film', randomFilm)
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
+/* GET random film page */
+router.get('/random/', (req, res, next) => {
+  request.get('http://cinema-1917-api.herokuapp.com/api/v1/films')
+    .query({ releaseMonth: shortMonth })
+    .end((error, result) => {
+      if (error) {
+        res.render('error', error)
+      }
+      if (result) {
+        var filmResults = result.body.results
+        var hasPlotOrPoster = filmResults.filter(elem => elem.plot !== 'unknown' || elem.posterURL !== null)
+        var randomFilm = hasPlotOrPoster[Math.floor(Math.random() * hasPlotOrPoster.length)]
+        console.log(`There are ${filmResults.length} results total, only ${hasPlotOrPoster.length} of which have either a poster URL or plot summary. Here's a random pick from that ${hasPlotOrPoster.length}.`)
+        console.log({randomFilm})
+        res.render('randomfilm', randomFilm)
+      }
+  })
 })
+
+
+// BELOW HERE NOT REWRITTEN!!!!!
+
 
 /* GET film selection page */
 router.get('/search', function(req, res, next) {
@@ -78,16 +83,4 @@ router.get('/filmresult', function(req, res, next) {
     .catch(function(error) {
       console.log(error)
     })
-})
-
-/* GET info page */
-router.get('/info', function(req, res, next) {
-  getAllData()
-    .then(function(dbEntries) {
-      var data = {database: dbEntries, year: centuryAgo, month: month}
-      res.render('info', data)
-  })
-  .catch(function(error) {
-    console.log(error)
-  })
 })

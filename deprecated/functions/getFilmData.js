@@ -30,7 +30,7 @@ function getFilmData(id) {
       type: res.type
     }
     // console.log(newFilm);
-
+    
     addFilmtoDB(newFilm)
     .then(function(newFilm) {
       console.log("Film added")
