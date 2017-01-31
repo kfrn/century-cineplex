@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A movie app for the films of yesteryear.",
   "scripts": {
-    "start": "nodemon ./src/bin/www"
+    "start": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
