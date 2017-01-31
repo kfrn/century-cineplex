@@ -1,6 +1,6 @@
 module.exports = filterSearchResults
 
-function filterSearchResults(searchResults, country, genre, plot) {
+function filterSearchResults (searchResults, country, genre, plot) {
   if (country !== 'any' && genre !== 'any' && plot === 'on') { // HAS country, HAS plot, HAS genre
     return searchResults.filter(elem => (elem.countries.includes(country) && elem.genres.includes(genre) && elem.plot !== 'unknown'))
   } else if (country !== 'any' && genre !== 'any' && plot !== 'on') { // HAS country, HAS genre; NO plot

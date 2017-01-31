@@ -8,16 +8,16 @@ module.exports = {
   getAllData
 }
 
-function addFilmtoDB(film) {
+function addFilmtoDB (film) {
   return knex('films').insert(film)
 }
 
-function clearDB() {
-  console.log("deleting existing films from DB")
+function clearDB () {
+  console.log('deleting existing films from DB')
   return knex('films').del()
   // return knex.raw('DELETE FROM "main"."films"')
 }
 
-function getAllData() {
+function getAllData () {
   return knex('films')
 }
