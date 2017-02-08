@@ -1,6 +1,90 @@
-* {
-  border: 1px solid red !important; }
+/* VARIABLES */
+/* BASICS */
+body {
+  background-color: black;
+  color: #c0c0c0;
+  font-family: "Droid Sans", Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center; }
 
-.kino-eye {
-  /* TEMP!!!! */
-  max-width: 500px; }
+a {
+  color: #c0c0c0; }
+
+a:hover {
+  color: white; }
+
+.container {
+  margin: auto 0;
+  max-width: 960px; }
+
+.title {
+  font-family: "Flamenco", cursive;
+  font-size: 2rem;
+  margin: 1rem;
+  margin-top: 2rem; }
+
+.cc-title {
+  color: white;
+  font-size: 2.5rem;
+  white-space: nowrap; }
+
+/* HOMEPAGE */
+.main-options {
+  margin: 2rem auto; }
+
+ul {
+  clear: left;
+  list-style: none;
+  padding: 0; }
+
+ul li {
+  margin: 10px; }
+
+.sourcecode {
+  font-family: "Flamenco", cursive;
+  font-size: 1.3rem; }
+
+/* MOBILE-FIRST STYLING */
+.landing-img, .film-poster, .noposter, .construction {
+  max-width: 100%; }
+
+/* FOOTER */
+.footer {
+  /* The below works, but the text is overlaid on other material if page is long enough */
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -50vw;
+  width: 100vw;
+  height: 2rem; }
+
+/* SHARED FOR SEARCH & RANDOM FILM PAGE */
+.feature-word {
+  color: white;
+  font-weight: bold; }
+
+.howabout {
+  margin: 1.5rem 0; }
+
+/* SEARCH PAGE */
+.search-img {
+  border-radius: 6px;
+  width: 150px;
+  margin: 2rem; }
+
+/* RANDOM FILM PAGE (prob also single result page) */
+.film-parameter {
+  color: white; }
+
+.noposter {
+  margin: 1rem 0;
+  max-width: 70%; }
+
+table {
+  font-size: 0.8rem;
+  text-align: left;
+  margin: 1rem; }
+
+td {
+  padding: 0.25rem; }

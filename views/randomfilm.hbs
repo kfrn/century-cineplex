@@ -1,47 +1,47 @@
 <div class="container">
 
-  <p class='title'>This month at the Century Cineplex ...</p>
+  <p class='title'>This month at the <span class="cc-title">Century Cineplex</span> ...</p>
 
-  <p>How about <span class="randomfilmtitle">{{title}}</span>?</p>
+  <p class="howabout">How about: <span class="feature-word">{{title}}</span>?</p>
 
-  <div class="">
+  <div class="filminfo-wrapper">
     <div class="singlefilminfo">
       <table>
         <tr>
-          <td><strong>Country:</strong></td>
+          <td class="film-parameter"><strong>Country:</strong></td>
           <td>{{countries}}</td>
         </tr>
         {{#if director}}
           <tr>
-            <td><strong>Director(s):</strong></td>
+            <td class="film-parameter"><strong>Director(s):</strong></td>
             <td>{{director}}</td>
           </tr>
         {{/if}}
         {{#if writers}}
         <tr>
-          <td><strong>Writer(s):</strong></td>
+          <td class="film-parameter"><strong>Writer(s):</strong></td>
           <td>{{writers}}</td>
         </tr>
         {{/if}}
         {{#if actors}}
           <tr>
-            <td><strong>Actors:</strong></td>
+            <td class="film-parameter"><strong>Actors:</strong></td>
             <td>{{actors}}</td>
           </tr>
         {{/if}}
         <tr>
-          <td><strong>Genre(s):</strong></td>
+          <td class="film-parameter"><strong>Genre(s):</strong></td>
           <td>{{genres}}</td>
         </tr>
         {{#if runtime}}
           <tr>
-            <td><strong>Runtime:</strong></td>
+            <td class="film-parameter"><strong>Runtime:</strong></td>
             <td>{{runtime}} minutes</td>
           </tr>
         {{/if}}
         {{#if plot}}
           <tr>
-            <td><strong>Plot summary:</strong></td>
+            <td class="film-parameter"><strong>Plot summary:</strong></td>
             <td>{{plot}}</td>
           </tr>
         {{/if}}
@@ -51,7 +51,7 @@
       {{#if posterURL}}
         <img src={{posterURL}} alt="Film poster for {{title}}" class="film-poster"/>
       {{else}}
-        <img src="../images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter" />
+        <img src="../images/noposter02_text2.png" alt="Decayed film frames - no poster available" class="noposter" />
       {{/if}}
     </div>
   </div>

@@ -6,12 +6,13 @@
 
 $main-font: 'Droid Sans', Helvetica, sans-serif;
 $heading-font: 'Flamenco', cursive;
+$grey: #c0c0c0;
 
 /* BASICS */
 
 body {
   background-color: black;
-  color: lightgray;
+  color: $grey;
   font-family: $main-font;
   font-size: 1rem;
   font-weight: normal;
@@ -19,7 +20,7 @@ body {
 }
 
 a {
-  color: lightgray;
+  color: $grey;
 }
 
 a:hover {
@@ -38,13 +39,13 @@ a:hover {
   margin-top: 2rem;
 }
 
-/* HOMEPAGE */
-
 .cc-title {
   color: white;
   font-size: 2.5rem;
   white-space: nowrap;
 }
+
+/* HOMEPAGE */
 
 .main-options {
   margin: 2rem auto;
@@ -56,7 +57,7 @@ ul {
   padding: 0;
 }
 
-li {
+ul li {
   margin: 10px;
 }
 
@@ -69,4 +70,59 @@ li {
 
 .landing-img, .film-poster, .noposter, .construction {
   max-width: 100%;
+}
+
+/* FOOTER */
+
+.footer {
+  /* The below works, but the text is overlaid on other material if page is long enough */
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -(0.5 * 100vw);
+  width: 100vw;
+  height: 2rem;
+}
+
+/* SHARED FOR SEARCH & RANDOM FILM PAGE */
+
+.feature-word {
+  color: white;
+  font-weight: bold;
+}
+
+.howabout {
+  margin: 1.5rem 0;
+}
+
+/* SEARCH PAGE */
+
+.search-img {
+  border-radius: 6px;
+  width: 150px;
+  margin: 2rem;
+}
+
+// tba
+
+/* RANDOM FILM PAGE (prob also single result page) */
+
+.film-parameter {
+  color: white;
+}
+
+.noposter {
+  margin: 1rem 0;
+  max-width: 70%;
+}
+
+table {
+  font-size: 0.8rem;
+  text-align: left;
+  margin: 1rem;
+}
+
+td {
+  padding: 0.25rem;
+  // margin: 0.5rem;
 }
