@@ -1,7 +1,72 @@
-* {
-    border: 1px solid red !important;
+// * {
+//     border: 1px solid red !important;
+// }
+
+/* VARIABLES */
+
+$main-font: 'Droid Sans', Helvetica, sans-serif;
+$heading-font: 'Flamenco', cursive;
+
+/* BASICS */
+
+body {
+  background-color: black;
+  color: lightgray;
+  font-family: $main-font;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
 }
 
-.kino-eye { /* TEMP!!!! */
-  max-width: 500px;
+a {
+  color: lightgray;
+}
+
+a:hover {
+  color: white;
+}
+
+.container {
+  margin: auto 0;
+  max-width: 960px;
+}
+
+.title {
+  font-family: $heading-font;
+  font-size: 2rem;
+  margin: 1rem;
+  margin-top: 2rem;
+}
+
+/* HOMEPAGE */
+
+.cc-title {
+  color: white;
+  font-size: 2.5rem;
+  white-space: nowrap;
+}
+
+.main-options {
+  margin: 2rem auto;
+}
+
+ul {
+  clear: left;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px;
+}
+
+.sourcecode {
+  font-family: $heading-font;
+  font-size: 1.3rem;
+}
+
+/* MOBILE-FIRST STYLING */
+
+.landing-img, .film-poster, .noposter, .construction {
+  max-width: 100%;
 }

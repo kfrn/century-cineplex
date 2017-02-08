@@ -30,5 +30,8 @@
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
     "superagent": "^2.3.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0"
   }
 }
