@@ -1,0 +1,148 @@
+/* UNIVERSALS */
+
+body {
+  font-family: 'Lato', sans-serif;
+  /*font: 32px;*/
+  font-size: 1rem;
+  text-align: center;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.title {
+  font-family: 'Flamenco', cursive;
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+
+/*#loaded {
+  display: none;
+}*/
+
+#loading {
+  display: none
+}
+
+.sourcecode {
+  font-size: 0.9rem;
+}
+
+form {
+  padding: 1px 0 10px 0;
+}
+
+.label {
+  padding-right: 0.5rem;
+}
+
+select {
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+button {
+  background-color: black;
+  border-radius: 5px;
+  border-width: 0;
+  color: white;
+  margin: 7px;
+  padding: 9px;
+}
+
+
+/* MOBILE-FIRST STYLING */
+
+.kino-eye, .film-poster, .noposter, .construction {
+  max-width: 100%;
+}
+
+
+/* LIST ITEMS */
+
+ul {
+  clear: left;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px;
+}
+
+
+/* FILM RESULTS */
+
+.randomfilmtitle {
+  font-weight: bold;
+}
+
+table {
+  text-align: left;
+  padding-bottom: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  padding-right: 20px;
+}
+
+tr {
+  vertical-align: top;
+}
+
+
+/* SETUP & STRUCTURE */
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+@media only screen and (min-width: 400px) {
+  .kino-eye {
+    max-width: 500px;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .film-poster {
+    max-width: 400px;
+  }
+  .noposter {
+    max-width: 320px;
+  }
+  .singlefilminfo {
+    max-width: 80%;
+  }
+  .construction {
+    max-width: 600px;
+  }
+}
+
+
+/* TBD */
+
+.poster-film-list, .noposter-film-list {
+  max-width: 150px;
+}
+
+.resultlist {
+  list-style-position: inside;
+  padding: 10px;
+}
+
+.filmtitle {
+  font-family: 'Flamenco', cursive;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-decoration: underline;
+  color: #453729
+}
+
+.filminfo {
+  display: none;
+}

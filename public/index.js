@@ -42,13 +42,3 @@ function expandCollapse () {
     expandAllFilmInfo()
   }
 }
-
-function loadingMessage () {
-  var loading = document.getElementById('loading')
-  var loaded = document.getElementById('loaded')
-  console.log('loading, loaded', loading, loaded)
-  loading.style.display = 'none'
-  loaded.style.display = 'block'
-}
-
-setTimeout(loadingMessage, 15000)

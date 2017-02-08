@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "A movie app for the films of yesteryear.",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "build-css": "node-sass --include-path scss public/stylesheets/main.scss public/stylesheets/main.css"
   },
   "repository": {
     "type": "git",
