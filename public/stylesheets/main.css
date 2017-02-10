@@ -88,7 +88,7 @@ button {
   font-weight: bold; }
 
 .howabout {
-  margin: 1.5rem 2rem; }
+  margin: 1.5rem 2rem 0 2rem; }
 
 .film-parameter {
   color: white; }
@@ -107,7 +107,7 @@ td {
   padding: 0.25rem; }
 
 /* FILM RESULTS PAGE */
-.resultlist {
+.resultlist, .singlefilminfo {
   list-style-position: inside;
   padding: 1.5rem; }
 

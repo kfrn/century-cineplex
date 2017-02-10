@@ -13,3 +13,5 @@ Try it out [here](http://century-cineplex.herokuapp.com/) on Heroku!
 
 _Version note:_  
 Originally written with inbuilt web-scraping capabilities and database, I've since rewritten the **Century Cineplex** to pull data from my [Cinema 1917 API](https://github.com/kfrn/cinema-1917-api).
+
+<!-- Heroku remote repo is https://git.heroku.com/century-cineplex.git -->

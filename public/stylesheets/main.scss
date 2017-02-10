@@ -121,7 +121,7 @@ button {
 }
 
 .howabout {
-  margin: 1.5rem 2rem;
+  margin: 1.5rem 2rem 0 2rem;
 }
 
 .film-parameter {
@@ -148,7 +148,7 @@ td {
 
 /* FILM RESULTS PAGE */
 
-.resultlist {
+.resultlist, .singlefilminfo {
   list-style-position: inside;
   // margin: 1.5rem;
   padding: 1.5rem;
