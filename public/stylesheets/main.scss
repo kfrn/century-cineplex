@@ -138,7 +138,7 @@ button {
 table {
   font-size: 0.8rem;
   text-align: left;
-  margin: 1rem;
+  margin: 1rem auto;
 }
 
 td {
@@ -150,7 +150,8 @@ td {
 
 .resultlist {
   list-style-position: inside;
-  padding: 10px;
+  // margin: 1.5rem;
+  padding: 1.5rem;
 }
 
 ol > li {
@@ -161,8 +162,6 @@ ol > li {
 
 @media only screen and (min-width: 600px) {
   table {
-    margin-left: auto;
-    margin-right: auto;
     max-width: 500px;
   }
   form {
@@ -172,5 +171,8 @@ ol > li {
   .search-img {
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+  .noposter {
+    max-width: 300px;
   }
 }
