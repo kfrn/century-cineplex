@@ -64,19 +64,20 @@ router.get('/filmresult', (req, res, next) => {
       if (error) res.render('error', error)
       if (result) {
         var plot = req.query.plot
-        if (plot === undefined) plot = 'off'
+        if (plot === 'on') {
+          plot = true
+        } else plot = false
         var searchMatches = filterSearchResults(result.body.results, req.query.country, req.query.genre, plot)
         var randomMatch = searchMatches[Math.floor(Math.random() * searchMatches.length)]
         if (randomMatch === undefined) res.render('noresult')
         else if (req.query.submission === 'singlefilm') {
           var randomFilm = deleteUnknowns(randomMatch)
           var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: plot}
-          console.log(filmData);
           res.render('result', filmData)
         } else if (req.query.submission === 'filmlist') {
           var mappedMatches = searchMatches.map(deleteUnknowns)
           var filmListData = {filmList: mappedMatches, country: req.query.country, genre: req.query.genre, plot: plot}
-          // console.log(filmListData);
+          if (filmListData.plot === false) delete filmListData.plot
           res.render('resultlist', filmListData)
         }
       }

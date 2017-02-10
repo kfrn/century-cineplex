@@ -2,62 +2,64 @@
 
   <h1 class='title'>This month at the <span class="cc-title">Century Cineplex</span> ...</h1>
 
-  <p class="howabout">Here are the films from <span class="feature-word">{{country}}</span> that match the genre <span class="feature-word">'{{genre}}'</span>{{#if plot}}, that have a plot summary{{/if}}. Click on a title to see details:</p>
+  <p class="howabout">Here are the films from <span class="feature-word">{{country}}</span> that match the genre <span class="feature-word">'{{genre}}'</span>{{#if filmListData.plot}}, that also have a plot summary{{/if}}. Click on a title to see details:</p>
 
   <button name='expand-collapse' onclick='expandCollapse()' ontouchend='expandCollapse()'>Expand/Collapse all</button>
 
   <ol class="resultlist">
     {{#each filmList}}
-    <li class="feature-word">{{this.title}}</li>
-    <div class="filminfo" >
-      <table class='singlefilminfo'>
-        <tr>
-          <td class="film-parameter"><strong>Title:</strong></td>
-          <td>{{this.title}}</td>
-        </tr>
-        {{#if this.director}}
-        <tr>
-          <td class="film-parameter"><strong>Director:</strong></td>
-          <td>{{this.director}}</td>
-        </tr>
+    <li>
+      <p class="feature-word">{{this.title}}</p>
+      <div class="filminfo" >
+        <table class='singlefilminfo'>
+          <tr>
+            <td class="film-parameter"><strong>Title:</strong></td>
+            <td>{{this.title}}</td>
+          </tr>
+          {{#if this.director}}
+          <tr>
+            <td class="film-parameter"><strong>Director:</strong></td>
+            <td>{{this.director}}</td>
+          </tr>
+          {{/if}}
+          {{#if this.writers}}
+          <tr>
+            <td class="film-parameter"><strong>Writer(s):</strong></td>
+            <td>{{this.writers}}</td>
+          </tr>
+          {{/if}}
+          {{#if this.actors}}
+          <tr>
+            <td class="film-parameter"><strong>Actors:</strong></td>
+            <td>{{this.actors}}</td>
+          </tr>
+          {{/if}}
+          {{#if this.genres}}
+          <tr>
+            <td class="film-parameter"><strong>Genre(s):</strong></td>
+            <td>{{this.genres}}</td>
+          </tr>
+          {{/if}}
+          {{#if this.runtime}}
+          <tr>
+            <td class="film-parameter"><strong>Runtime:</strong></td>
+            <td>{{this.runtime}} minutes</td>
+          </tr>
+          {{/if}}
+          {{#if this.plot}}
+          <tr>
+            <td class="film-parameter"><strong>Plot:</strong></td>
+            <td>{{this.plot}}</td>
+          </tr>
+          {{/if}}
+        </table>
+        {{#if this.posterURL}}
+        <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="poster-film-list"/>
+        {{else}}
+        <img src="../images/noposter02_text2.png" alt="Decayed film frames - no poster available" class="noposter" />
         {{/if}}
-        {{#if this.writers}}
-        <tr>
-          <td class="film-parameter"><strong>Writer(s):</strong></td>
-          <td>{{this.writers}}</td>
-        </tr>
-        {{/if}}
-        {{#if this.actors}}
-        <tr>
-          <td class="film-parameter"><strong>Actors:</strong></td>
-          <td>{{this.actors}}</td>
-        </tr>
-        {{/if}}
-        {{#if this.genres}}
-        <tr>
-          <td class="film-parameter"><strong>Genre(s):</strong></td>
-          <td>{{this.genres}}</td>
-        </tr>
-        {{/if}}
-        {{#if this.runtime}}
-        <tr>
-          <td class="film-parameter"><strong>Runtime:</strong></td>
-          <td>{{this.runtime}} minutes</td>
-        </tr>
-        {{/if}}
-        {{#if this.plot}}
-        <tr>
-          <td class="film-parameter"><strong>Plot:</strong></td>
-          <td>{{this.plot}}</td>
-        </tr>
-        {{/if}}
-      </table>
-      {{#if this.posterURL}}
-      <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="poster-film-list"/>
-      {{else}}
-      <img src="../images/noposter02_text2.png" alt="Decayed film frames - no poster available" class="noposter" />
-      {{/if}}
-    </div>
+      </div>
+    </li>
     {{/each}}
   </ol>
 

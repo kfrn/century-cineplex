@@ -36,5 +36,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+public/stylesheets/oldstylesheet.css
 public/stylesheets/oldstylesheet-del.css
 public/stylesheets/main.css
