@@ -2,14 +2,14 @@
 
   <h1 class='title'>This month at the <span class="cc-title">Century Cineplex</span> ...</h1>
 
-  <p class="howabout">Here are the films from <span class="feature-word">{{country}}</span> that match the genre <span class="feature-word">'{{genre}}'</span>{{#if filmListData.plot}}, that also have a plot summary{{/if}}.</p>
+  <p class="howabout">Here are the films from <span class="feature-word">{{country}}</span> that match the genre <span class="feature-word">'{{genre}}'</span>{{#if filmListData.plot}}, that also have a plot summary{{/if}}. Click on a title to see details:</p>
 
   <button name='expand-collapse' onclick='expandCollapse()'>Expand/Collapse all</button>
 
   <ol class="resultlist">
     {{#each filmList}}
     <li>
-      <p class="feature-word">{{this.title}}</p>
+      <p class="feature-word filmtitle">{{this.title}}</p>
       <div class="filminfo">
         <table class='singlefilminfo'>
           <tr>
