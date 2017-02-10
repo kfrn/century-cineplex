@@ -71,10 +71,12 @@ router.get('/filmresult', (req, res, next) => {
         else if (req.query.submission === 'singlefilm') {
           var randomFilm = deleteUnknowns(randomMatch)
           var filmData = {randomFilm: randomFilm, country: req.query.country, genre: req.query.genre, plot: plot}
+          console.log(filmData);
           res.render('result', filmData)
         } else if (req.query.submission === 'filmlist') {
           var mappedMatches = searchMatches.map(deleteUnknowns)
           var filmListData = {filmList: mappedMatches, country: req.query.country, genre: req.query.genre, plot: plot}
+          // console.log(filmListData);
           res.render('resultlist', filmListData)
         }
       }

@@ -51,7 +51,7 @@ ul li {
 
 /* FOOTER */
 .footer {
-  /* The below works, but the text is overlaid on other material if page is long enough */
+  /* The below works, but the text is overlaid on other material if page is long enough. Therefore, class only used on short pages. */
   position: fixed;
   bottom: 0;
   left: 50%;
@@ -59,24 +59,41 @@ ul li {
   width: 100vw;
   height: 2rem; }
 
-/* SHARED FOR SEARCH & RANDOM FILM PAGE */
+/* SEARCH PAGE */
+form {
+  padding: 1px 0 10px 0; }
+
+.label {
+  padding-right: 0.5rem; }
+
+select {
+  border-radius: 5px;
+  font-size: 0.8rem; }
+
+.search-img {
+  margin-top: 1.5rem;
+  max-height: 200px; }
+
+/* SHARED FOR SEARCH & FILM RESULT PAGES */
+button {
+  background-color: white;
+  border-radius: 5px;
+  border-width: 0;
+  color: black;
+  margin: 7px;
+  padding: 9px; }
+
 .feature-word {
   color: white;
   font-weight: bold; }
 
 .howabout {
-  margin: 1.5rem 0; }
+  margin: 1.5rem 2rem; }
 
-/* SEARCH PAGE */
-.search-img {
-  border-radius: 6px;
-  width: 150px;
-  margin: 2rem; }
-
-/* RANDOM FILM PAGE (prob also single result page) */
 .film-parameter {
   color: white; }
 
+/* SHARED FOR SEARCH & RANDOM FILM PAGE */
 .noposter {
   margin: 1rem 0;
   max-width: 70%; }
@@ -88,3 +105,11 @@ table {
 
 td {
   padding: 0.25rem; }
+
+/* FILM RESULTS PAGE */
+.resultlist {
+  list-style-position: inside;
+  padding: 10px; }
+
+ol li {
+  margin-bottom: 1.5rem; }

@@ -1,8 +1,8 @@
 <div class="container">
 
-  <h1 class='title'>This month at the Century Cineplex ...</h1>
+  <h1 class='title'>This month at the <span class="cc-title">Century Cineplex</span> ...</h1>
 
-  <p>Here's a film from {{country}}, matching the genre '{{genre}}'{{#if plot}}, that has a plot summary{{/if}}:</p>
+  <p class="howabout">Here's a film from <span class="feature-word">{{country}}</span>, matching the genre <span class="feature-word">'{{genre}}'</span>{{#if randomFilm.plot}}, that has a plot summary{{/if}}:</p>
 
   <div class="filminfo-wrapper">
     <div class="singlefilminfo">
@@ -55,7 +55,7 @@
       {{#if randomFilm.posterURL}}
         <img src={{randomFilm.posterURL}} alt="Film poster for {{randomFilm.title}}" class="film-poster"/>
       {{else}}
-        <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter" />
+        <img src="../images/noposter02_text2.png" alt="Decayed film frames - no poster available" class="noposter" />
       {{/if}}
     </div>
   </div>

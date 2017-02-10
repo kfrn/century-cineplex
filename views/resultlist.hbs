@@ -1,53 +1,53 @@
 <div class="container">
 
-  <p class='title'>This month at the Century Cineplex ...</p>
+  <h1 class='title'>This month at the <span class="cc-title">Century Cineplex</span> ...</h1>
 
-  <p>Here are the films from {{country}} that match the genre '{{genre}}'{{#if plot}}, that have a plot summary{{/if}}. Click on a title to see details:</p>
+  <p class="howabout">Here are the films from <span class="feature-word">{{country}}</span> that match the genre <span class="feature-word">'{{genre}}'</span>{{#if plot}}, that have a plot summary{{/if}}. Click on a title to see details:</p>
 
   <button name='expand-collapse' onclick='expandCollapse()' ontouchend='expandCollapse()'>Expand/Collapse all</button>
 
   <ol class="resultlist">
     {{#each filmList}}
-    <li class="filmtitle">{{this.title}}</li>
+    <li class="feature-word">{{this.title}}</li>
     <div class="filminfo" >
       <table class='singlefilminfo'>
         <tr>
-          <td><strong>Title:</strong></td>
+          <td class="film-parameter"><strong>Title:</strong></td>
           <td>{{this.title}}</td>
         </tr>
         {{#if this.director}}
         <tr>
-          <td><strong>Director:</strong></td>
+          <td class="film-parameter"><strong>Director:</strong></td>
           <td>{{this.director}}</td>
         </tr>
         {{/if}}
         {{#if this.writers}}
         <tr>
-          <td><strong>Writer(s):</strong></td>
+          <td class="film-parameter"><strong>Writer(s):</strong></td>
           <td>{{this.writers}}</td>
         </tr>
         {{/if}}
         {{#if this.actors}}
         <tr>
-          <td><strong>Actors:</strong></td>
+          <td class="film-parameter"><strong>Actors:</strong></td>
           <td>{{this.actors}}</td>
         </tr>
         {{/if}}
         {{#if this.genres}}
         <tr>
-          <td><strong>Genre(s):</strong></td>
+          <td class="film-parameter"><strong>Genre(s):</strong></td>
           <td>{{this.genres}}</td>
         </tr>
         {{/if}}
         {{#if this.runtime}}
         <tr>
-          <td><strong>Runtime:</strong></td>
+          <td class="film-parameter"><strong>Runtime:</strong></td>
           <td>{{this.runtime}} minutes</td>
         </tr>
         {{/if}}
         {{#if this.plot}}
         <tr>
-          <td><strong>Plot:</strong></td>
+          <td class="film-parameter"><strong>Plot:</strong></td>
           <td>{{this.plot}}</td>
         </tr>
         {{/if}}
@@ -55,7 +55,7 @@
       {{#if this.posterURL}}
       <img src={{this.posterURL}} alt="Film poster for {{this.title}}" class="poster-film-list"/>
       {{else}}
-      <img src="images/noposteravailable.jpg" alt="Decayed film frames - no poster available" class="noposter-film-list" />
+      <img src="../images/noposter02_text2.png" alt="Decayed film frames - no poster available" class="noposter" />
       {{/if}}
     </div>
     {{/each}}
